@@ -1,0 +1,13 @@
+# Claude Code
+.claude/
+
+# Packaged skills (optional - remove if you want to distribute .skill files)
+# *.skill
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+temp_extract/
