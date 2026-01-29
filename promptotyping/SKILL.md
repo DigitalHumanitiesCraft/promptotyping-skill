@@ -36,8 +36,8 @@ A Context Engineering methodology for iterative human-LLM collaboration. Maps re
 |-------|--------|------|
 | **1. Preparation** | Raw materials (data, sources, notes, expert knowledge) | Gather only. NO .md files yet. |
 | **2. Exploration** | Understanding (no artifacts) | Probe data, test feasibility. **Dead ends are findings.** NO .md files yet. |
-| **3. Destillation** | The Vault (.md files) | NOW create docs. Compress knowledge. Name files by purpose. |
-| **4. Implementation** | Working artifact + Vault-Updates | Iterate: generate → validate → update docs → repeat. |
+| **3. Destillation** | Documentation (.md files) | NOW create docs. Compress knowledge. Name files by purpose. |
+| **4. Implementation** | Working artifact + doc updates | Iterate: generate → validate → update docs → repeat. |
 
 **Critical:** Phases 1-2 produce no formal documentation. You cannot document what you don't yet understand. The .md files emerge in Phase 3 when clarity exists.
 
@@ -113,7 +113,7 @@ This loop is the method working, not failing. Findings change the question itsel
 |--------------|-------------|
 | Documenting before understanding (phases 1-2) | Premature structure constrains exploration |
 | Under-specified requirements | LLM fills gaps with assumptions you didn't want |
-| Bloated vault (context rot) | Performance degrades, attention diffuses |
+| Bloated docs (context rot) | Performance degrades, attention diffuses |
 | Skipping the Journal | Decisions become untraceable, dead ends get revisited |
 | Trusting without validating | Sycophancy and confabulation go undetected |
 
