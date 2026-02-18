@@ -1,7 +1,6 @@
 ---
 name: promptotyping
 description: "Context Engineering methodology for LLM-assisted research artifact development. Four phases: Preparation → Exploration → Distillation → Implementation. Core principle: Documents as Source of Truth, Code as Disposable Artifact."
-user-invokable: true
 ---
 
 # Promptotyping — Operative Playbook
