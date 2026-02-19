@@ -118,7 +118,7 @@ This is the mechanism that separates Promptotyping from Vibe Coding, because the
 
 ### Selective Context Loading
 
-For complex projects, docs form a **Vault** (folder of linked .md files). Loading all docs into every prompt causes Context Rot — select per task instead:
+For complex projects, loading all docs into every prompt causes Context Rot — select per task instead:
 
 | Task | Load | Skip |
 |------|------|------|
