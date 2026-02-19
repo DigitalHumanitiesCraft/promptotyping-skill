@@ -1,6 +1,6 @@
 ---
 name: promptotyping
-description: "Context Engineering methodology for LLM-assisted research artifact development. Four phases: Preparation → Exploration → Distillation → Implementation. Core principle: Documents as Source of Truth, Code as Disposable Artifact."
+description: "Structured LLM-assisted development of research artifacts. Use when building tools, visualizations, or editions from research data with iterative documentation."
 ---
 
 # Promptotyping — Operative Playbook
@@ -38,6 +38,8 @@ Then match:
 
 If unclear, ask: "I see data files and a requirements.md — should we review the docs and start building, or explore the data further first?"
 
+If the expert wants to skip phases, respect that — but note what was skipped in journal.md so future iterations know what assumptions weren't validated.
+
 ---
 
 ## Phase 1: Preparation
@@ -50,7 +52,7 @@ If unclear, ask: "I see data files and a requirements.md — should we review th
 4. If accessible, do a quick structural scan: fields, volume, edge cases
 5. Resist documenting at this stage — premature docs encode assumptions before you understand the data. The docs become powerful precisely because they emerge from exploration, not before it.
 
-**Transition:** When you can summarize what's available, propose moving on: "I've inventoried everything — ready to explore what we can do with this data?"
+**Transition:** When inventory is complete, propose moving to exploration. Summarize what's available and what's missing.
 
 ---
 
@@ -81,7 +83,7 @@ The question is not "can I build this?" but "does this mapping make sense for th
 > Kept: Gantt + burndown + resource heatmap. Rejected: Kanban (no status field in API), dependency graph (relationships not modeled).
 > Data problems surfaced: timestamps in mixed formats, some tasks lack assignee, nested subtasks need flattening.
 
-**Transition:** "We've established X, Y, Z are feasible and A, B are not. Ready to distill this into docs?"
+**Transition:** When the mapping is clear enough to document, propose distillation. State what's feasible, what's not, and why.
 
 ---
 
@@ -145,7 +147,7 @@ docs/
 └── journal.md          # Chronological process log
 ```
 
-**Transition:** "The docs cover data structure, requirements, and design decisions. Ready to start implementation?"
+**Transition:** When docs are reviewed and capture the shared understanding, propose starting implementation.
 
 ---
 
@@ -181,6 +183,10 @@ Load relevant docs → Generate → Expert validates →
 | Dead end | journal.md, roll back to last savepoint |
 | Colleague feedback | requirements or design doc |
 
+### Quick Diagnostic
+
+When the expert reports a problem: output content wrong → check knowledge doc. Output format/structure wrong → check design or requirements doc. Output ignores constraints → check if the relevant doc was loaded.
+
 ### In Claude Code / Agentic Setups
 
 - Read relevant .md files from the project's docs folder at session start
@@ -191,6 +197,8 @@ Load relevant docs → Generate → Expert validates →
 ---
 
 ## Interaction Examples
+
+These illustrate tone and depth, not exact phrasing. Adapt to context.
 
 **Phase 1 — Identifying gaps:**
 ```
