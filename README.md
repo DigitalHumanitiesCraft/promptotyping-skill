@@ -9,6 +9,8 @@ Two skills — one for building, one for writing:
 | **promptotyping** | Build research artifacts (tools, visualizations, editions) | [SKILL.md](promptotyping/SKILL.md) |
 | **promptotyping-writing** | Academic and professional text production | [SKILL.md](promptotyping-writing/SKILL.md) |
 
+The promptotyping skill includes six operations as reference files (orient, distill, check, verify, save, handoff) that Claude loads on demand via `/promptotyping orient`, `/promptotyping check`, etc.
+
 ## Installation
 
 ```bash
@@ -28,6 +30,15 @@ Ask Claude to use the methodology:
 - *"Use promptotyping for this project"*
 - *"Promptotyping für dieses Projekt"*
 - *"Use promptotyping-writing for this paper"*
+
+Operations during a session:
+
+- `/promptotyping orient` — state detection, session start
+- `/promptotyping distill` — compress findings into docs
+- `/promptotyping check` — gap analysis, blind spots
+- `/promptotyping verify` — validate facts via web search
+- `/promptotyping save` — git savepoint + journal update
+- `/promptotyping handoff` — session end, persist status
 
 ## Background
 
