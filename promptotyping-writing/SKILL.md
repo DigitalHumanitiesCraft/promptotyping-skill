@@ -180,6 +180,23 @@ Claude: This paragraph claims "the practice was widespread by 1850." Your
 
 ---
 
+## Operations
+
+This skill shares operations with the main promptotyping skill. Invoke them via `/promptotyping <operation>`:
+
+| Operation | When to use |
+|-----------|-------------|
+| orient | Session start — detect state, report status |
+| distill | After exploration — compress findings into docs |
+| check | Before closing a task — gap analysis, blind spots |
+| verify | Before finalizing docs — external validation via web |
+| save | At stable states — git commit + journal update |
+| handoff | Session end — persist status for next session |
+
+All operations recognize both code-project docs (knowledge.md, requirements.md, design.md, implementation.md) and writing-project docs (concept.md, sources.md, structure.md, style.md).
+
+---
+
 ## Background Resources
 
 If the user wants deeper context on the methodology, point them to:

@@ -1,6 +1,6 @@
 # Promptotyping
 
-[Claude Code skills](https://code.claude.com/docs/en/skills) for the Promptotyping Context Engineering methodology.
+[Claude Code skills](https://docs.anthropic.com/en/docs/claude-code/skills) for the Promptotyping Context Engineering methodology.
 
 Two skills — one for building, one for writing:
 

@@ -4,7 +4,9 @@ Final iteration check. Assess the current state for completeness, consistency, a
 
 ## Promptotyping Documents to check
 
-knowledge.md, requirements.md, design.md, implementation.md, journal.md, and any domain-adapted variants (e.g., editorial-guidelines.md, api-schema.md).
+**For code/artifact projects:** knowledge.md, requirements.md, design.md, implementation.md, journal.md.
+**For writing projects:** concept.md, sources.md, structure.md, style.md, journal.md.
+Plus any domain-adapted variants (e.g., editorial-guidelines.md, api-schema.md).
 
 Only check docs that actually exist. In early phases (Preparation, Exploration), the main question is: do we have enough to start distilling?
 
