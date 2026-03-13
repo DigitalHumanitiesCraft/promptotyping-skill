@@ -22,4 +22,4 @@ Validate factual claims, references, and external information against the real w
 
 If `$ARGUMENTS` is provided, verify only that specific doc or topic: $ARGUMENTS
 
-Otherwise, verify all Promptotyping Documents in the project.
+Otherwise, verify all Promptotyping Documents in the project (knowledge.md, requirements.md, design.md, implementation.md, journal.md, and any domain-adapted variants).

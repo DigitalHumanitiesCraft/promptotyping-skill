@@ -1,26 +1,17 @@
 # Promptotyping
 
-[Claude Code skills](https://docs.anthropic.com/en/docs/claude-code/skills) for the Promptotyping Context Engineering methodology.
+A [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code/skills) for building research artifacts (tools, visualizations, editions) with iterative documentation.
 
-Two skills — one for building, one for writing:
-
-| Skill | Purpose | Docs |
-|-------|---------|------|
-| **promptotyping** | Build research artifacts (tools, visualizations, editions) | [SKILL.md](promptotyping/SKILL.md) |
-| **promptotyping-writing** | Academic and professional text production | [SKILL.md](promptotyping-writing/SKILL.md) |
-
-The promptotyping skill includes six operations as reference files (orient, distill, check, verify, save, handoff) that Claude loads on demand via `/promptotyping orient`, `/promptotyping check`, etc.
+The skill includes six operations as reference files (orient, distill, check, verify, save, handoff) that Claude loads on demand via `/promptotyping orient`, `/promptotyping check`, etc.
 
 ## Installation
 
 ```bash
 # Personal (all projects)
 cp -r promptotyping ~/.claude/skills/
-cp -r promptotyping-writing ~/.claude/skills/
 
 # Or project-specific
 cp -r promptotyping .claude/skills/
-cp -r promptotyping-writing .claude/skills/
 ```
 
 ## Usage
@@ -29,7 +20,6 @@ Ask Claude to use the methodology:
 
 - *"Use promptotyping for this project"*
 - *"Promptotyping für dieses Projekt"*
-- *"Use promptotyping-writing for this paper"*
 
 Operations during a session:
 

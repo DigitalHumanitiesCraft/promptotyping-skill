@@ -13,21 +13,12 @@ Take our current exploration, conversation, or findings and distill them into th
 
 1. **Identify** which document(s) need creating or updating:
 
-   **For code/artifact projects:**
    - `knowledge.md` – domain knowledge, data structures, standards, semantics
    - `requirements.md` – user stories grouped by epic, priorities, success criteria
    - `design.md` – visualization/interaction decisions, rejected alternatives with reasons
    - `implementation.md` – architecture, dependencies, technical solutions
    - `journal.md` – chronological log of decisions and dead ends
-
-   **For writing projects:**
-   - `concept.md` – research question, thesis, theoretical framework, scope
-   - `sources.md` – key literature with claims, evidence, page refs (compressed extracts)
-   - `structure.md` – argument flow across sections, what each must accomplish
-   - `style.md` – submission guidelines, tone, audience, formatting
-   - `journal.md` – decisions, abandoned argument lines, reviewer feedback
-
-   Or any domain-adapted variant (e.g., `editorial-guidelines.md`, `api-schema.md`)
+   - Or any domain-adapted variant (e.g., `editorial-guidelines.md`, `api-schema.md`)
 
 2. **Draft** the content with maximal compression. Propose the structure before writing.
 
