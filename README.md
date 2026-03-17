@@ -1,34 +1,39 @@
 # Promptotyping
 
-A [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code/skills) for building research artifacts (tools, visualizations, editions) with iterative documentation.
+An [Agent Skill](https://agentskills.io/specification) for building research artifacts (tools, visualizations, editions) with iterative documentation.
 
-The skill includes six operations as reference files (orient, distill, check, verify, save, handoff) that Claude loads on demand via `/promptotyping orient`, `/promptotyping check`, etc.
+Follows the open [Agent Skills standard](https://agentskills.io). Primary target: [Claude Code](https://docs.anthropic.com/en/docs/claude-code/skills). Compatible with any agent supporting the standard (Codex CLI, Cursor, Gemini CLI, GitHub Copilot, etc.).
+
+The skill includes six operations as reference files (orient, distill, check, verify, save, handoff) that the agent loads on demand.
 
 ## Installation
 
 ```bash
-# Personal (all projects)
+# Via skills.sh package manager
+npx skills add promptotyping
+
+# Or manually: personal (all projects)
 cp -r promptotyping ~/.claude/skills/
 
-# Or project-specific
+# Or manually: project-specific
 cp -r promptotyping .claude/skills/
 ```
 
 ## Usage
 
-Ask Claude to use the methodology:
+Ask the agent to use the methodology:
 
 - *"Use promptotyping for this project"*
 - *"Promptotyping für dieses Projekt"*
 
-Operations during a session:
+Operations during a session (Claude Code syntax, other agents may differ):
 
-- `/promptotyping orient` — state detection, session start
-- `/promptotyping distill` — compress findings into docs
-- `/promptotyping check` — gap analysis, blind spots
-- `/promptotyping verify` — validate facts via web search
-- `/promptotyping save` — git savepoint + journal update
-- `/promptotyping handoff` — session end, persist status
+- `/promptotyping orient` – detect project state, start session
+- `/promptotyping distill` – create or update promptotyping docs from current knowledge
+- `/promptotyping check` – gap analysis, blind spots
+- `/promptotyping verify` – validate facts via web search
+- `/promptotyping save` – git savepoint + journal update
+- `/promptotyping handoff` – end session, persist status for next orient
 
 ## Background
 

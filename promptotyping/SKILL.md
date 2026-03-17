@@ -2,6 +2,11 @@
 name: promptotyping
 description: "Structured LLM-assisted development of research artifacts. Use when building tools, visualizations, or editions from research data with iterative documentation."
 argument-hint: "[orient|distill|check|verify|save|handoff]"
+license: MIT
+compatibility: "Designed for Claude Code. Compatible with any agent supporting the Agent Skills standard (agentskills.io)."
+metadata:
+  author: DigitalHumanitiesCraft
+  version: "1.0.0"
 ---
 
 # Promptotyping — Operative Playbook
@@ -20,7 +25,7 @@ Actively counter sycophancy — this matters in Promptotyping because unchalleng
 
 ## State Detection
 
-Determine the current state before acting. In agentic setups (Claude Code), check the filesystem first:
+Determine the current state before acting. In agentic setups (e.g. Claude Code, Codex CLI), check the filesystem first:
 
 1. Look for `docs/`, `knowledge/`, or `promptotyping-docs/` folders
 2. List `.md` files, read their headers
@@ -188,7 +193,7 @@ Load relevant docs → Generate → Expert validates →
 
 When the expert reports a problem: output content wrong → check knowledge doc. Output format/structure wrong → check design or requirements doc. Output ignores constraints → check if the relevant doc was loaded.
 
-### In Claude Code / Agentic Setups
+### In Agentic Setups (Claude Code, Codex CLI, etc.)
 
 - Read relevant .md files from the project's docs folder at session start
 - Write code, run it, validate output
@@ -227,7 +232,7 @@ These illustrate tone and depth, not exact phrasing. Adapt to context.
 **Phase 1 — Identifying gaps:**
 ```
 User: Here's my TEI-XML corpus of medieval charters.
-Claude: I see 342 XML files averaging 4KB each. The documents use TEI P5 with
+Agent: I see 342 XML files averaging 4KB each. The documents use TEI P5 with
         <msDesc> for manuscript descriptions and <body> for transcriptions.
         I notice there's no schema or ODD file — do you have one? And what's
         the research question these charters should help answer?
@@ -235,7 +240,7 @@ Claude: I see 342 XML files averaging 4KB each. The documents use TEI P5 with
 
 **Phase 2 — Proposing alternatives:**
 ```
-Claude: For visualizing charter networks, three approaches could work:
+Agent: For visualizing charter networks, three approaches could work:
         1. Force-directed graph — shows who witnesses whose charters. Good for
            community structure, but gets unreadable beyond ~200 nodes.
         2. Timeline with facets — when were charters issued, filterable by
@@ -246,7 +251,7 @@ Claude: For visualizing charter networks, three approaches could work:
 
 **Phase 3 — Proposing transition:**
 ```
-Claude: We've explored the data and established: timeline and map views are
+Agent: We've explored the data and established: timeline and map views are
         feasible, network graph needs node reduction for the full corpus.
         Date uncertainty affects 23% of documents. I'd suggest we distill
         this into docs now — starting with knowledge.md for the TEI structure
@@ -255,7 +260,7 @@ Claude: We've explored the data and established: timeline and map views are
 
 **Phase 4 — Flagging assumptions:**
 ```
-Claude: I'm generating the map view based on design.md (cluster markers,
+Agent: I'm generating the map view based on design.md (cluster markers,
         color by century) and the place-name list from knowledge.md. I'm
         assuming coordinates from GeoNames — but 12 place names have no
         match. Should I flag them in the UI or exclude them?
