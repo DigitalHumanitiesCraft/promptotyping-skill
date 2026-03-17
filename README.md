@@ -18,8 +18,9 @@ cp -r promptotyping ~/.codex/skills/     # Codex CLI
 cp -r promptotyping ~/.gemini/skills/    # Gemini CLI
 cp -r promptotyping ~/.cursor/skills/    # Cursor
 
-# Or manually: project-level (universal path)
-cp -r promptotyping .agents/skills/
+# Or manually: project-level
+cp -r promptotyping .claude/skills/       # Claude Code
+cp -r promptotyping .agents/skills/       # Codex CLI, Gemini CLI, Cursor
 ```
 
 ## Usage
