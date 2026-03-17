@@ -9,14 +9,17 @@ The skill includes six operations as reference files (orient, distill, check, ve
 ## Installation
 
 ```bash
-# Via skills.sh package manager
+# Via skills.sh package manager (auto-detects your agent)
 npx skills add DigitalHumanitiesCraft/promptotyping-skill
 
-# Or manually: personal (all projects)
-cp -r promptotyping ~/.claude/skills/
+# Or manually: user-level (all projects)
+cp -r promptotyping ~/.claude/skills/    # Claude Code
+cp -r promptotyping ~/.codex/skills/     # Codex CLI
+cp -r promptotyping ~/.gemini/skills/    # Gemini CLI
+cp -r promptotyping ~/.cursor/skills/    # Cursor
 
-# Or manually: project-specific
-cp -r promptotyping .claude/skills/
+# Or manually: project-level (universal path)
+cp -r promptotyping .agents/skills/
 ```
 
 ## Usage
