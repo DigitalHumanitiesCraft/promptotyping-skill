@@ -1,10 +1,12 @@
 # Promptotyping
 
-An [Agent Skill](https://agentskills.io/specification) for building research artifacts (tools, visualizations, editions) with iterative documentation.
+A context engineering methodology for LLM-assisted development of research artifacts (tools, visualizations, editions), packaged as an [Agent Skill](https://agentskills.io/specification).
+
+Promptotyping treats **documents as the source of truth and code as disposable**. Instead of prompting for code directly, you build compressed, domain-adaptive docs (knowledge, requirements, design, implementation) that encode your decision logic. The result: reproducible reasoning across sessions, agents, and team members. If the code is lost, the knowledge isn't.
+
+The skill guides the agent through four phases (Preparation, Exploration, Distillation, Implementation) and includes six operations as reference files that the agent loads on demand.
 
 Follows the open [Agent Skills standard](https://agentskills.io). Primary target: [Claude Code](https://docs.anthropic.com/en/docs/claude-code/skills). Compatible with any agent supporting the standard (Codex CLI, Cursor, Gemini CLI, GitHub Copilot, etc.).
-
-The skill includes six operations as reference files (orient, distill, check, verify, save, handoff) that the agent loads on demand.
 
 ## Installation
 
