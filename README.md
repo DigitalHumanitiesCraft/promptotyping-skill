@@ -10,7 +10,7 @@ The skill includes six operations as reference files (orient, distill, check, ve
 
 ```bash
 # Via skills.sh package manager
-npx skills add promptotyping
+npx skills add DigitalHumanitiesCraft/promptotyping-skill
 
 # Or manually: personal (all projects)
 cp -r promptotyping ~/.claude/skills/
