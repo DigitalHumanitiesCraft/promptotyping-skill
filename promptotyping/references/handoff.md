@@ -1,17 +1,23 @@
 # Handoff – Session End
 
-End this session by persisting the full status for the next session's orient.
+End this session: commit current work and persist full status for the next session's orient.
 
-## Write to journal.md
+## Steps
 
-Look for an existing journal: check `docs/journal.md`, `knowledge/journal.md`, `promptotyping-docs/journal.md`, then project root. If no journal exists yet, create one in the first existing docs folder — or at `docs/journal.md` if none exists (create `docs/` if needed).
+1. **Check git status.** Show what changed since the last commit. If there are uncommitted changes, stage and commit with a concise, descriptive message. If `$ARGUMENTS` is provided, use it as the commit description: $ARGUMENTS
 
-Append a session-end entry in this format:
+   Do not push. The human decides when to push.
+
+2. **Update journal.md.** Look for an existing journal: check `docs/journal.md`, `knowledge/journal.md`, `promptotyping-docs/journal.md`, then project root. If no journal exists yet, create one in the first existing docs folder — or at `docs/journal.md` if none exists (create `docs/` if needed).
+
+   Append a session-end entry in this format:
 
 ```
 ## YYYY-MM-DD HH:MM – handoff
 
 **Summary:** What was accomplished this session (2–3 sentences max).
+**Decisions:** Key decisions with brief rationale.
+**Dead ends:** What didn't work (if any).
 **Phase:** Current Promptotyping phase. Which docs exist and are up to date.
 **Open issues:** Unresolved problems, known gaps, things that need domain expert input.
   Be specific: "23% of dates in the HSA dataset lack @cert attributes, no decision
@@ -20,6 +26,4 @@ Append a session-end entry in this format:
   should be able to start working immediately.
 ```
 
-## Before writing
-
-Check for uncommitted changes. If there are any, ask whether to run a savepoint first.
+3. **Confirm** the commit hash (if committed) and one-line summary of the handoff.

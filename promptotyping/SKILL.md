@@ -1,7 +1,7 @@
 ---
 name: promptotyping
 description: "Structured LLM-assisted development of research artifacts. Use when building tools, visualizations, or editions from research data with iterative documentation."
-argument-hint: "[orient|distill|check|verify|save|handoff]"
+argument-hint: "[orient|distill|check|verify|handoff]"
 license: MIT
 compatibility: "Designed for Claude Code. Compatible with any agent supporting the Agent Skills standard (agentskills.io)."
 metadata:
@@ -206,20 +206,25 @@ When the expert reports a problem: output content wrong → check knowledge doc.
 
 When invoked with `/promptotyping <operation>` or when the user says an operation name during an active Promptotyping session, read the matching reference file and execute it:
 
-| Operation | Reference | When to use | Side effects |
-|-----------|-----------|-------------|--------------|
-| orient | [references/orient.md](references/orient.md) | Session start — detect state, report status | None (read-only) |
-| distill | [references/distill.md](references/distill.md) | After exploration — compress findings into docs | Creates/updates .md files |
-| check | [references/check.md](references/check.md) | Before closing a task — gap analysis, blind spots | None (read-only) |
-| verify | [references/verify.md](references/verify.md) | Before finalizing docs — external validation via web | None (read-only) |
-| save | [references/save.md](references/save.md) | At stable states — git commit + journal update | Git commit, journal write |
-| handoff | [references/handoff.md](references/handoff.md) | Session end — persist status for next session | Journal write |
+| Operation | Frequency | Reference | What it does |
+|-----------|-----------|-----------|-------------|
+| orient | Every session | [references/orient.md](references/orient.md) | Detect project state, report status |
+| handoff | Every session | [references/handoff.md](references/handoff.md) | Commit + journal + persist status for next orient |
+| check | Regularly | [references/check.md](references/check.md) | Gap analysis, blind spots, update docs |
+| distill | Once (setup) | [references/distill.md](references/distill.md) | Create docs from exploration for the first time |
+| verify | Rarely | [references/verify.md](references/verify.md) | Validate external facts via web search |
 
-**Typical session flow:** `orient → (work) → distill → check → verify → save → ... → handoff`
+### Two modes of work
 
-Not every operation is needed every session. Minimum cycle: `orient → (work) → save → handoff`.
+**Setup** (new project, docs don't exist yet):
+`orient → explore data → distill → check → handoff`
 
-Operations with side effects (save, handoff) should only run when the user requests them. Orient, check, distill, and verify can be suggested proactively.
+**Development** (docs exist, building features):
+`orient → work → check → handoff`
+
+Not every operation is needed every session. Minimum cycle: `orient → (work) → handoff`.
+
+Handoff is the only operation with side effects (git commit, journal write) and should only run when the user requests it. Orient, check, distill, and verify can be suggested proactively.
 
 If `$ARGUMENTS` matches an operation name, load that reference file. If it doesn't match any operation, treat it as a general Promptotyping request.
 
