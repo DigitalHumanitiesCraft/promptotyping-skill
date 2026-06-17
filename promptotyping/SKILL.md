@@ -1,7 +1,7 @@
 ---
 name: promptotyping
 description: "Structured LLM-assisted development of research artifacts. Use when building tools, visualizations, or editions from research data with iterative documentation."
-argument-hint: "[orient|distill|check|verify|handoff]"
+argument-hint: "[orient|distill|check|verify|handoff|compact]"
 license: MIT
 compatibility: "Designed for Claude Code. Compatible with any agent supporting the Agent Skills standard (agentskills.io)."
 metadata:
@@ -113,7 +113,7 @@ Create .md files by **purpose**, with domain-adaptive filenames:
 | **Requirements** | User Stories, Epics, priorities, success criteria | `requirements.md` |
 | **Design** | Visualization/interaction decisions, rejected alternatives with reasons | `design.md` |
 | **Technical** | Architecture, dependencies, workarounds | `implementation.md` |
-| **Journal** | Chronological log: decisions, dead ends, savepoints (git hashes), feedback | `journal.md` |
+| **Journal** | Chronological log: decisions, dead ends, savepoints (git hashes), feedback. When it grows large, `compact` condenses old entries and offloads full originals to `journal-archive.md` | `journal.md`, `journal-archive.md` |
 
 ### Requirements Engineering
 
@@ -211,6 +211,7 @@ When invoked with `/promptotyping <operation>` or when the user says an operatio
 | orient | Every session | [references/orient.md](references/orient.md) | Detect project state, report status |
 | handoff | Every session | [references/handoff.md](references/handoff.md) | Commit + journal + persist status for next orient |
 | check | Regularly | [references/check.md](references/check.md) | Gap analysis, blind spots, update docs |
+| compact | When journal grows | [references/compact.md](references/compact.md) | Archive + condense journal.md, keep recent entries verbatim |
 | distill | Once (setup) | [references/distill.md](references/distill.md) | Create docs from exploration for the first time |
 | verify | Rarely | [references/verify.md](references/verify.md) | Validate external facts via web search |
 
@@ -224,7 +225,7 @@ When invoked with `/promptotyping <operation>` or when the user says an operatio
 
 Not every operation is needed every session. Minimum cycle: `orient → (work) → handoff`.
 
-Handoff is the only operation with side effects (git commit, journal write) and should only run when the user requests it. Orient, check, distill, and verify can be suggested proactively.
+Handoff and compact are the operations with side effects (git commit, journal write) and should only run when the user requests or confirms them. Orient, check, distill, and verify can be suggested proactively — and handoff itself suggests compact once the journal grows large.
 
 If `$ARGUMENTS` matches an operation name, load that reference file. If it doesn't match any operation, treat it as a general Promptotyping request.
 

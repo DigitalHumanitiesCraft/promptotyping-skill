@@ -26,4 +26,6 @@ End this session: commit current work and persist full status for the next sessi
   should be able to start working immediately.
 ```
 
-3. **Confirm** the commit hash (if committed) and one-line summary of the handoff.
+3. **Suggest compacting if the journal is large.** After appending the new entry, count the `## YYYY-MM-DD HH:MM – handoff` sections in journal.md. If there are more than 12 (or the file exceeds ~500 lines), suggest the compact operation — e.g. "journal.md now has N entries; want me to run compact to archive the older ones into journal-archive.md and condense the history?" Do not run it automatically; wait for confirmation. See [compact.md](compact.md).
+
+4. **Confirm** the commit hash (if committed) and one-line summary of the handoff.

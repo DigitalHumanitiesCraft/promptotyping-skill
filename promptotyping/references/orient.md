@@ -4,7 +4,7 @@ Perform state detection for this project. Do the following in order:
 
 1. **Scan the filesystem.** Look for `docs/`, `knowledge/`, `promptotyping-docs/` folders. List all `.md` files and read their headers. Identify data files (formats, structure, volume). Check for existing code or prototypes.
 
-2. **Locate journal.md.** Check `docs/journal.md`, `knowledge/journal.md`, `promptotyping-docs/journal.md`, then project root. If found, note the path – handoff writes to this same location. If none exists, state that.
+2. **Locate journal.md.** Check `docs/journal.md`, `knowledge/journal.md`, `promptotyping-docs/journal.md`, then project root. If found, note the path – handoff writes to this same location. If none exists, state that. If a `journal-archive.md` sits alongside it, the journal has been compacted: the archive holds the full older entries and journal.md may open with a `## Verdichtete Historie` section. You still only need the most recent handoff entry; consult the archive only if deeper history is relevant.
 
 3. **Read the last journal entry** (if journal exists). Look for the most recent `## YYYY-MM-DD HH:MM – handoff` section. It has full status, open issues, and next steps.
 
