@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this skill, please cite it as below."
+title: "Promptotyping Agent Skill"
+type: software
+authors:
+  - family-names: Pollin
+    given-names: Christopher
+    orcid: "https://orcid.org/0000-0002-4879-129X"
+    affiliation: "Digital Humanities Craft OG"
+  - family-names: Steiner
+    given-names: Christian
+    orcid: "https://orcid.org/0000-0002-6658-4622"
+    affiliation: "Digital Humanities Craft OG"
+repository-code: "https://github.com/DigitalHumanitiesCraft/promptotyping-skill"
+url: "https://dhcraft.org/Promptotyping/"
+license: MIT
+keywords:
+  - promptotyping
+  - context engineering
+  - agent skill
+  - digital humanities
+references:
+  - type: generic
+    title: "Promptotyping: Zwischen Vibe Coding, Vibe Research und Context Engineering"
+    authors:
+      - family-names: Pollin
+        given-names: Christopher
+      - family-names: Steiner
+        given-names: Christian
+    doi: 10.5281/zenodo.14160875
