@@ -30,7 +30,7 @@ The project knowledge base is the set of knowledge documents together with the a
 - Process knowledge documents state what is open and how the understanding developed and why, in `journal.md`.
 - Agent instruction documents state how agents are to work, with procedures, constraints, the checks to be run and pointers to the relevant knowledge, in `CLAUDE.md` or `AGENTS.md`.
 
-The knowledge folder is `knowledge/` in the repository root, and it holds the knowledge documents. A folder `docs/` is left to a website published from the repository. The file names in this skill are the defaults and stand for the document with that function. A project adds a document when it has the function for it, such as `design.md` for an artefact with an interface or `testing.md` for what its tests guarantee and how they are run. The knowledge documents follow the Promptotyping Documents of the specification, whose repository https://github.com/DigitalHumanitiesCraft/Promptotyping holds one template per document under `_content/promptotyping-document/` and the convention they follow in `_content/konvention.md`. A template is readable as plain Markdown at `https://dhcraft.org/Promptotyping/_content/promptotyping-document/{slug}.md`, with the slugs `project`, `data`, `specification`, `user-stories`, `design`, `architecture`, `domain-knowledge`, `testing`, `verification`, `journal`, `plan`, `index` and `action-layer`. Before creating a document, read its template and follow it as far as the material fills it, and tell the user which template the document follows. Without network access, write the document by its function as this skill describes it.
+The knowledge folder is `knowledge/` in the repository root, and it holds the knowledge documents. A folder `docs/` is left to a website published from the repository. The file names in this skill are the defaults and stand for the document with that function. A project adds a document when it has the function for it, such as `design.md` for an artefact with an interface or `testing.md` for what its tests guarantee and how they are run. The knowledge documents follow the Promptotyping Documents of the specification, whose repository https://github.com/DigitalHumanitiesCraft/Promptotyping holds one template per document and the convention they follow under `templates/`. A template is readable as plain Markdown at `https://dhcraft.org/Promptotyping/templates/{slug}.md`, with the slugs `project`, `data`, `domain-knowledge`, `specification`, `design`, `architecture`, `testing`, `plan`, `journal`, `index` and `action-layer`, and the convention at `convention`. Before creating a document, read its template and follow it as far as the material fills it, and tell the user which template the document follows. Without network access, write the document by its function as this skill describes it.
 
 The researchers know the sources and the field and judge whether an artefact fits. "The user" is whoever directs the agent, and that person passes on to the researchers what only they can decide.
 
@@ -101,7 +101,9 @@ An agent can run executable checks and review code for the first question, raise
   researchers whether they appear without a day.
 - Date parser rewritten, tests pass, result not yet compared with data.md.
 
-## 2026-11-14 | Uncertain dates in the timeline
+## Entries
+
+### 2026-11-14 Uncertain dates in the timeline
 
 - Trigger: letters that carry only a year (data.md, section Dating).
 - Found: the parser dropped them without a message.
@@ -113,7 +115,7 @@ An agent can run executable checks and review code for the first question, raise
 
 `## Open` stands at the beginning and holds what the next session needs to continue, meaning unfinished work, results not yet checked, questions that wait for the researchers, and work handed to a named recipient. Each handoff rewrites it as the complete current list. A settled point leaves the section, and an entry below records how it was settled. When nothing is open, the section says "Nothing open."
 
-The entries follow, newest first, one per coherent step of the work, with the fields that have content among Trigger, Found, Decided, Rejected, Corrected, Changed and Evidence, and with at least one piece of evidence. Where a journal already groups its entries under a heading of its own, keep that form. A judgement of the researchers on a Promptotype is an entry of its own, in their words, with its purpose and its known limits. An entry is history and is rewritten only by condensing. Accepted work that has not begun belongs in the specification or in a `plan.md`, where the project keeps one.
+The entries follow under `## Entries`, newest first, one per coherent step of the work, with the fields that have content among Trigger, Found, Decided, Rejected, Corrected, Changed and Evidence, and with at least one piece of evidence. Where a journal already groups its entries under a heading of its own, keep that form. A judgement of the researchers on a Promptotype is an entry of its own, in their words, with its purpose and its known limits. An entry is history and is rewritten only by condensing. Accepted work that has not begun belongs in the specification or in a `plan.md`, where the project keeps one.
 
 ## Boundaries
 

@@ -56,7 +56,7 @@ The documents lie in the folder `knowledge/`, and the agent instructions in the 
 - `journal.md` states what is open, and how the understanding developed and why.
 - `CLAUDE.md` or `AGENTS.md` states how agents are to work in this repository.
 
-A project adds a document when it has the function for it, such as `design.md` for an interface or `testing.md` for its tests. These are Promptotyping Documents. The [repository of the specification](https://github.com/DigitalHumanitiesCraft/Promptotyping) holds a template for each of them under `_content/promptotyping-document/` and the convention they follow, and the [templates page](https://dhcraft.org/Promptotyping/#vorlagen) shows them. The skill reads the template before it creates a document.
+A project adds a document when it has the function for it, such as `design.md` for an interface or `testing.md` for its tests. These are Promptotyping Documents. The [repository of the specification](https://github.com/DigitalHumanitiesCraft/Promptotyping) holds a template for each of them and the convention they follow under `templates/`, and the [site](https://dhcraft.org/Promptotyping/#templates) lists them. The skill reads the template before it creates a document.
 
 ## Checking
 
@@ -81,7 +81,7 @@ Version 2 is a new skill and carries no calls or document names of version 1. Ve
 
 - Pollin 2026, [Promptotyping: Zwischen Vibe Coding, Vibe Research und Context Engineering](https://lisa.gerda-henkel-stiftung.de/digitale_geschichte_pollin)
 - Pollin 2025, [Promptotyping: Von der Idee zur Anwendung](https://dhcraft.org/excellence/blog/Promptotyping)
-- The [Promptotyping specification](https://dhcraft.org/Promptotyping/) with glossary, templates and use cases
+- The [Promptotyping specification](https://dhcraft.org/Promptotyping/) with the templates, the knowledge base of the practice and use cases
 
 Cite the skill through [CITATION.cff](CITATION.cff).
 
