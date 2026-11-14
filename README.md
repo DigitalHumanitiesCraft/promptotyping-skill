@@ -56,7 +56,7 @@ In a new project the documents lie in `knowledge/`, and the agent instructions i
 - `journal.md` states what is open, and how the understanding developed and why.
 - `CLAUDE.md` or `AGENTS.md` states how agents are to work in this repository.
 
-A project adds a document when it has the function for it, such as `design.md` for an interface or `testing.md` for its tests. The document convention and its templates are part of the [Promptotyping specification](https://dhcraft.org/Promptotyping/).
+A project adds a document when it has the function for it, such as `design.md` for an interface or `testing.md` for its tests. These are Promptotyping Documents. The [repository of the specification](https://github.com/DigitalHumanitiesCraft/Promptotyping) holds a template for each of them under `_content/promptotyping-document/` and the convention they follow, and the [templates page](https://dhcraft.org/Promptotyping/#vorlagen) shows them. The skill reads the template before it creates a document.
 
 ## Checking
 

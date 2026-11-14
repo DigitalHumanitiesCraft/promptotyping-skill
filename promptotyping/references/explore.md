@@ -9,7 +9,7 @@ Call it in a new project, when research data are added or changed, when a new qu
 In a new project the material and the purpose are made explicit first. This is the researchers' work, and the agent helps.
 
 1. Initialise a Git repository where none exists. Create the folders `data/`, `knowledge/`, `scripts/` and `generated/`, and add a `.gitignore` for operating-system and editor files.
-2. Ask for the purpose, the research question and two or three user stories in the researchers' words, and for the provenance of the material, its known limits and the rights under which it may be processed and published. Write the answers into `project.md` in the knowledge folder, keep the wording, and mark the user stories as provisional.
+2. Ask for the purpose, the research question and two or three user stories in the researchers' words, and for the provenance of the material, its known limits and the rights under which it may be processed and published. Write the answers into `project.md` in the knowledge folder, following its template as far as the answers fill it, keep the wording, and mark the user stories as provisional.
 3. Make the material technically accessible, for instance by unpacking a dump or converting a format. Copy it into `data/`, leave the original where the researchers keep it, and ask where that is. Never change the files in `data/`.
 4. Commit the knowledge folder and the `.gitignore`. Ask before committing anything in `data/`. Where the researchers do not want the data in the repository, add `data/` to `.gitignore` and note in `project.md` where the data lie.
 
