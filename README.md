@@ -44,7 +44,7 @@ A session runs `orient`, then the work, then `handoff`. Building itself has no s
 ## How the skill is built
 
 - [`promptotyping/SKILL.md`](promptotyping/SKILL.md) holds the definition, the terms, the rules for building and the rules for checking. An agent loads it whenever the skill is active.
-- [`promptotyping/references/`](promptotyping/references/) holds one file per subcommand, which the agent loads when the subcommand or one that builds on it is called.
+- [`promptotyping/references/`](promptotyping/references/) holds one file per subcommand and one for projects built with version 1. The agent loads a file only when it is needed.
 
 ## The knowledge base
 
