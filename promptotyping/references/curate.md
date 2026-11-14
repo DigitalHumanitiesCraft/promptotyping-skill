@@ -2,7 +2,7 @@
 
 Maintains the knowledge documents that exist. It checks their statements against a measure and brings them back into line with it. It corrects what is wrong, updates what has changed, makes vague statements concrete, and removes what no longer holds, the last only with the researchers' approval.
 
-`curate` is the explicit call for knowledge curation, the revision of the project knowledge in light of what the sources, checking and work with the artefacts reveal. The same curation also happens under rule 3 of building.
+`curate` is the explicit call for knowledge curation, in which the project knowledge is revised whenever the sources, checking or work with the artefacts bring something to light. The same curation also happens under rule 3 of building.
 
 Call it when a check, a review or work with the artefact contradicts a statement, when the data or the code have changed, when documents have drifted from the state of the project or from each other, when facts from outside the project have to be supported, or when the documents are to be questioned as a whole. Without further text, it covers the documents that the changes since the last handoff touch, and in a small knowledge base all of them.
 

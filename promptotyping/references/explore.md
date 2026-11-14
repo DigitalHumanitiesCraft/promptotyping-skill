@@ -16,7 +16,7 @@ In a new project the material and the purpose are made explicit first. This is t
 ## Procedure
 
 1. Read `project.md` first, so that the examination follows the purpose and the user stories.
-2. Examine the files in `data/` with small, documented scripts under `scripts/` rather than reading them whole, so that only the profile and selected examples enter the context. A single text or a small collection may be read directly.
+2. Examine the files in `data/` with small, documented scripts under `scripts/` rather than reading them whole, so that the context receives only the profile and a few chosen examples. One text or a small collection can simply be read.
 3. Let the scripts write the figures that change with the data, such as counts, value ranges, cardinalities and distributions, to `generated/data-profile.md`.
 4. Write or revise `data.md` on provenance, structure, meaning, relations, gaps and anomalies. It points to the profile instead of repeating its numbers, names the file and the rows or elements behind every statement that is not obvious, and marks every interpretation as an inference.
 5. Trace the path from each research question to the data. Say which fields the question needs, where they stand, in what form, and what is missing, uncertain or encoded ambiguously. What the data do not support is a finding of equal value.
