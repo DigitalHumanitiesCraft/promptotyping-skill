@@ -2,7 +2,7 @@
 
 Changes to the Promptotyping skill, per version. Versions are fixed by Git tags.
 
-## 2.0.0, unreleased
+## 2.0.0, 2026-11-14
 
 Version 2 brings the skill into line with the definition of Promptotyping as a working practice.
 
