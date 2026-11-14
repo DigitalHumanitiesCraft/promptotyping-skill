@@ -76,16 +76,11 @@ Three kinds of checking stay apart, because they differ in what a judgement rest
 - Agentic review is the examination of code, data or knowledge documents by an agent, often with a fresh context. Its findings are evidence. A reviewer built on the same model may share its blind spots.
 - Scholarly validation is the judgement of people with knowledge of the sources and the field on whether a result is warranted by the sources and adequate to the research purpose.
 
-A result has one of three statuses.
+A result has one of three statuses, proposal, doubted and confirmed.
 
-Proposal
-: What an agent or an LLM produces.
-
-Doubted
-: A proposal that anyone taking part in the work, an agent included, has marked as doubtful.
-
-Confirmed
-: A proposal confirmed by a person whose expertise reaches as far as the decision requires, or by a validated deterministic rule. Such a rule is an executable check that runs on all of the real data, has been shown on cases with known answers to fail when it should, and has been adopted by the researchers for a defined kind of decision.
+- A proposal is what an agent or an LLM produces.
+- A proposal is doubted when anyone taking part in the work, an agent included, has marked it as doubtful.
+- A proposal is confirmed only by a person whose expertise reaches as far as the decision requires or by a validated deterministic rule. Such a rule is an executable check that runs on all of the real data, has been shown on cases with known answers to fail when it should, and has been adopted by the researchers for a defined kind of decision.
 
 For each status, who or what set it is recorded, in the form the project already uses for it. Where the project has none, a short note after the statement serves, such as "(proposal, agent, 2026-11-14)" or "(confirmed by the editor, 2026-11-20)".
 
