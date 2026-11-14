@@ -1,27 +1,42 @@
-# Orient – Session Start
+# orient
 
-Perform state detection for this project. Do the following in order:
+Establishes where the project stands before any work begins. It changes no file.
 
-1. **Scan the filesystem.** Look for `docs/`, `knowledge/`, `promptotyping-docs/` folders. List all `.md` files and read their headers. Identify data files (formats, structure, volume). Check for existing code or prototypes.
+Call it when a session begins or the task changes.
 
-2. **Locate journal.md.** Check `docs/journal.md`, `knowledge/journal.md`, `promptotyping-docs/journal.md`, then project root. If found, note the path – handoff writes to this same location. If none exists, state that. If a `journal-archive.md` sits alongside it, the journal has been compacted: the archive holds the full older entries and journal.md may open with a `## Verdichtete Historie` section. You still only need the most recent handoff entry; consult the archive only if deeper history is relevant.
+## Procedure
 
-3. **Read the last journal entry** (if journal exists). Look for the most recent `## YYYY-MM-DD HH:MM – handoff` section. It has full status, open issues, and next steps.
+1. Read the agent instructions in the repository root, `CLAUDE.md` or `AGENTS.md`, where they exist.
+2. Find the knowledge folder. Look for `knowledge/`, then `docs/` and `promptotyping-docs/`, and list the Markdown documents with their headings. Read `INDEX.md` where one exists.
+3. Read the beginning of `journal.md`, the section `## Open` and the newest entry. In a journal written with version 1, read the most recent handoff entry with its open issues and next steps. Where the knowledge folder still holds a `handoff.md` with open points, read those as open as well. Read older entries only when the ground of a decision is needed, and `journal-archive.md` only then.
+4. Read the documents the task needs and leave the others unread.
+5. Inspect the actual state of the folder. Where it is a Git repository, run `git status`, and where it is none, report that. Check that the files the documents name exist. Look at the research data only on the surface, meaning which files exist, in which formats and of what size. Examining their content is `explore`.
+6. Name what is there and the step that comes next.
 
-4. **Determine the Promptotyping phase:**
-   - Nothing exists → Pre-Preparation
-   - Data files but no .md docs → Preparation → Exploration
-   - Knowledge exists, no .md files yet → Ready for Distillation
-   - .md docs exist → Distillation → Implementation
-   - Working prototype + docs → Implementation (iteration)
+| What is there | Next |
+|---|---|
+| nothing, or only an idea | help the researchers name data, question and artefact, then Preparation as in `references/explore.md` |
+| research data, no knowledge documents | Preparation, then `explore` |
+| an account of the data, no specification | `distill` |
+| knowledge documents, no artefact or an early one | build under the rules for building |
+| an artefact, no knowledge documents | `explore`, then `distill`, before building further |
+| a Promptotype with open findings | `curate` where knowledge is wrong, otherwise build |
+| a Promptotype with nothing open | ask the researchers what they want to learn or change next |
 
-5. **Report concisely:**
-   - Journal location (or: "no journal yet")
-   - Current phase
-   - What exists (files, docs, data, code)
-   - Last known state from journal (if available)
-   - Suggested next action
+The forms of work recur, so the table names the next step and no stage the project has left behind.
 
-If `$ARGUMENTS` is provided, focus the orientation on that aspect (e.g., `/promptotyping orient requirements` to check only requirements status): $ARGUMENTS
+## Result
 
-Do not start working on anything yet. Orient first, then wait for direction.
+A short report.
+
+- what the project is and what the artefact is for
+- what exists, meaning data, documents, code and checks
+- what the journal lists as open
+- the suggested next step
+- what the documents do not state although the work needs it, as a gap that `explore`, `distill` or `curate` would close
+
+Then wait for direction.
+
+## Distinct from
+
+`orient` reads what the project already knows, so that an agent with a fresh context catches up, and it needs no decision from the researchers. `explore` examines the material, so that the project learns what it had not yet recorded.

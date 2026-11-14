@@ -1,283 +1,105 @@
 ---
 name: promptotyping
-description: "Structured LLM-assisted development of research artifacts. Use when building tools, visualizations, or editions from research data with iterative documentation."
-argument-hint: "[orient|distill|check|verify|handoff|compact]"
+description: "Guides an agent in Promptotyping, a working practice for translating research data and their contexts into research artefacts such as tools, visualisations, editions and data workflows, built from a curated project knowledge base. Use when a user invokes Promptotyping, works in a repository whose knowledge or docs folder guides the agent, or asks to orient in a project, explore research data, distil findings into knowledge documents, curate, ground or review those documents, or hand a session off."
+argument-hint: "[orient|explore|distill|curate|handoff]"
 license: MIT
-compatibility: "Designed for Claude Code. Compatible with any agent supporting the Agent Skills standard (agentskills.io)."
+compatibility: "Designed for Claude Code. Compatible with any agent that supports the Agent Skills standard (agentskills.io). Needs Git, and network access only for grounding."
 metadata:
   author: DigitalHumanitiesCraft
-  version: "1.0.0"
+  version: "2.0.0"
 ---
 
-# Promptotyping — Operative Playbook
+# Promptotyping
 
-> **Documents as Source of Truth, Code as Disposable Artifact.**
+Promptotyping is a working practice for translating research data and their contexts, with frontier Large Language Model (LLM) agents, into research artefacts that fit the researchers' purposes and ways of working. Agents build prototypes from modelled data and a curated project knowledge base. The prototype is a means of knowing. Working with it shows what the data support and what the project needs, and what checking and use reveal is curated back into the project knowledge.
 
-Promptotyping maps research data and domain knowledge onto functional artifacts (interfaces, tools, visualizations, editions) through structured context engineering. It is a variant of Scholar-Centred Design — the goal is not simplification but making complexity navigable for researchers with heterogeneous questions.
+What decides whether an artefact fits lies in the sources and the research purpose as the researchers understand them. The knowledge documents guide the work, and they can themselves be wrong about the material. What accumulates across the iterations is the curated knowledge and the research data. The artefact may be replaced once what working with it revealed has been curated into the project knowledge.
 
-Act as **Co-Researcher**, not as executor. The human is the **Critical Expert in the Loop** — they hold domain knowledge, AI literacy, and the final say on quality. Treat them as the authority on correctness; treat yourself as the authority on feasibility and options.
+## Terms
 
-Why docs over code? LLMs are non-deterministic — identical prompts produce different outputs. What IS reproducible is the decision logic. Promptotyping Documents encode that logic. Another person with the same docs can reconstruct a functionally equivalent artifact. If the code is lost, the knowledge isn't. Reproducibility shifts from "identical repetition" to "traceable reasoning."
+The work takes four forms, which recur in no fixed sequence.
 
-Actively counter sycophancy — this matters in Promptotyping because unchallenged assumptions narrow the exploration space. The expert doesn't notice blind spots if you only confirm their first idea. So: propose alternatives before implementing, say "this trades X for Y" before the expert commits, ask "what questions haven't we asked?" Generating options and letting the expert filter is the core cognitive mode.
+- Preparation assembles the material and the research context.
+- Exploration establishes what the data can and cannot support.
+- Distillation writes that understanding into the knowledge documents.
+- Implementation builds the artefact from them in bounded tasks.
 
----
+A Promptotype is what an iteration yields, a prototype that can be used and inspected, together with the project knowledge base and the research data from which it was built, so that each state can be versioned as a whole.
 
-## State Detection
+The project knowledge base is a set of documents in natural language together with the agent instructions in the repository root. The documents are of three types, which distinguish functions and prescribe no file structure.
 
-Determine the current state before acting. In agentic setups (e.g. Claude Code, Codex CLI), check the filesystem first:
+- Declarative knowledge documents state what holds, for instance the project's purpose and scope (`project.md`), the structure, meaning, provenance, gaps and uncertainties of the data (`data.md`), and what the artefact is to do (`specification.md`).
+- Process knowledge documents state how the understanding developed and why, and what is open, in `journal.md`.
+- Agent instruction documents state how agents are to work, with procedures, constraints, the checks to be run and pointers to the relevant knowledge, in `CLAUDE.md` or `AGENTS.md`.
 
-1. Look for `docs/`, `knowledge/`, or `promptotyping-docs/` folders
-2. List `.md` files, read their headers
-3. Scan for data files — formats, structure, volume
-4. Check for existing code or prototypes
+The knowledge folder is the folder a project already has for these documents, `knowledge/`, `docs/` or `promptotyping-docs/`. A new project uses `knowledge/`. The file names in this skill are the defaults of a new project and stand for the existing document with that function. A project built with version 1 of this skill keeps its folder and its names, where `knowledge.md` carries what `data.md` and `project.md` carry here and `requirements.md` is the specification. A project adds a document when it has the function for it, such as `design.md` for an artefact with an interface. Templates and the document convention are published at https://dhcraft.org/Promptotyping/.
 
-Then match:
+Two roles take part, and one person may hold both. The researchers know the sources and the field and judge whether an artefact fits. The research software developer directs the agent and answers for whether the artefact does what it claims. Where this skill says "the user", it means whoever directs the agent, and that person passes on to the researchers what only they can decide.
 
-| What you find | Phase | Do this |
-|--------------|-------|---------|
-| Nothing — vague idea, no files | Pre-Preparation | Help articulate the goal. Ask: What data? What question? What artifact? |
-| Data files, no .md docs | Preparation → Exploration | Inventory materials, probe the data |
-| Knowledge exists, no .md files yet | Ready for Distillation | Propose doc structure, draft initial docs |
-| .md docs exist | Distillation → Implementation | Read ALL docs, assess completeness, start building |
-| Working prototype + docs, issues found | Implementation (iteration) | Fix issues, update docs with new knowledge |
+## Subcommands
 
-If unclear, ask: "I see data files and a requirements.md — should we review the docs and start building, or explore the data further first?"
+When the skill is invoked with a subcommand, or the user names one during the work, read the matching reference file and follow it. Text after the subcommand narrows it to a document or a topic.
 
-If the expert wants to skip phases, respect that — but note what was skipped in journal.md so future iterations know what assumptions weren't validated.
+| Subcommand | Call it when | Reference |
+|---|---|---|
+| `orient` | a session begins or the task changes | [references/orient.md](references/orient.md) |
+| `explore` | there is new material or a new question to the data | [references/explore.md](references/explore.md) |
+| `distill` | findings are to become the basis for building | [references/distill.md](references/distill.md) |
+| `curate` | the knowledge documents are to be checked, corrected or grounded | [references/curate.md](references/curate.md) |
+| `handoff` | a session ends or work passes to someone else | [references/handoff.md](references/handoff.md) |
 
----
+A session runs `orient`, then the work, then `handoff`. Not every subcommand is needed in every session. `orient` changes nothing and may be run unasked. `explore`, `distill` and `curate` write files and commit their result, and `handoff` commits the session, so these four run when the user asks for them or agrees. No subcommand pushes.
 
-## Phase 1: Preparation
+Calls from version 1 remain valid. `check` leads to `curate review`, `verify` leads to `curate ground`, `compact` leads to the section Condensing the journal in `references/handoff.md`, and `distil` is the same as `distill`. Text that names no subcommand is a general request under the rules below.
 
-**Goal:** Gather all raw materials before technical decisions.
+Preparation and Implementation have no subcommand. Preparation is the researchers' work. They assemble the material and name purpose and question, and the agent helps as the section Preparation in a new project of `references/explore.md` describes. Implementation is the agent's ordinary work between `orient` and `handoff` and follows the rules for building.
 
-1. Ask the user to share or point to: research data (any format), standards/schema docs, research questions, domain knowledge
-2. Inventory: list files, formats, sizes, apparent structure
-3. Identify gaps: "I see TEI-XML but no schema — do you have that?" / "The API returns JSON but there's no documentation for the field meanings" / "What research question should these data answer?"
-4. If accessible, do a quick structural scan: fields, volume, edge cases
-5. Resist documenting at this stage — premature docs encode assumptions before you understand the data. The docs become powerful precisely because they emerge from exploration, not before it.
+Where a finding belongs follows from its reach. A single statement or requirement is corrected under rule 3 of building or through `curate`. A changed purpose or a document that is missing calls for `distill`. An account of the data that is in question as a whole calls for `explore`.
 
-**Transition:** When inventory is complete, propose moving to exploration. Summarize what's available and what's missing.
+## Rules for building
 
----
+These rules apply whenever the agent builds, whether or not a subcommand was called.
 
-## Phase 2: Exploration & Mapping
+1. Build in bounded tasks, each small enough that its result can be run and inspected. State which documents the task draws on and which assumptions it makes.
+2. Compare each result with the knowledge base, show it to the researchers and stop for their inspection, since many requirements only become clear in front of a running artefact. For a web artefact, start a local server and give the address.
+3. When a result reveals missing or wrong knowledge, write the finding into the responsible knowledge document first and let the code follow. Decide first where the fault arose, in knowledge about the data, in a requirement, in a design decision or in the agent instructions.
+4. Where rules or mappings suffice to process research data, write a procedure that can be inspected, tested and rerun. Where an LLM must produce data directly, preserve its raw output, so that every correction can be measured against it, and treat each item as a proposal. An artefact that shows unconfirmed data shows which statements have been confirmed and by whom.
+5. Select the context for each task. Load the documents the task needs and leave the others out, and work on large data through code, so that only a profile and selected examples enter the context.
+6. Before a decision on design, propose alternatives and name what each trades for what.
+7. Never change the source material in `data/`. Data the project produces lie in a folder of their own and are versioned with the knowledge base and the artefact. Commit at stable states.
 
-**Goal:** Determine whether and how the research question maps onto the data. This is the intellectual core.
+## Checking
 
-### The Mapping Process
+Three kinds of checking stay apart, because they differ in what a judgement rests on.
 
-1. **Formulate** the research question concretely: "Who corresponded with whom, when, from where?"
-2. **Identify** which data fields the question requires: sender, recipient, date, location
-3. **Check** which fields exist in the data and in what form — trace the path from question to data field
-4. **Surface gaps:** missing values, uncertain data, ambiguous encodings, inconsistent formats
-5. **Propose** multiple artifact types with tradeoffs. Use minimal sketches, not full prototypes — resource-conscious exploration. Expect dead ends; they're findings.
-6. **Map explicitly:** "Question X needs fields Y and Z. Y exists at [location in data]. Z must be derived from..."
+- Verification establishes whether a result conforms to a standard the project has accepted. Its strongest form is the executable check, code that decides whether a result meets a stated condition, such as validation against a schema, a unit test or an invariant over all records. An executable check has to be checked itself, for whether it runs against the code the artefact actually uses and over all of the real data, and whether it can fail. A test fixture confirms nothing about the data.
+- Agentic review is the examination of code, data or knowledge documents by an agent, often with a fresh context. Its findings are evidence. A reviewer built on the same model may share its blind spots.
+- Scholarly validation is the judgement of people with knowledge of the sources and the field on whether a result is warranted by the sources and adequate to the research purpose.
 
-The question is not "can I build this?" but "does this mapping make sense for the research question?" Understanding what the data does NOT support is equally valuable.
+A result has one of three statuses.
 
-### Example 1 (Digital Humanities — correspondence data):
-> Data: 11,576 letters in CMIF/TEI-XML. Question: correspondence patterns over time and space.
-> Explored: Timeline, Map, Sankey, Force-Graph, Matrix-Heatmap, Chord diagram.
-> Kept: Timeline, Map, Sankey, Graph. Rejected: Matrix (too abstract), Chord (breaks at ~50 nodes).
-> Domain problems surfaced: uncertain dates (`@cert`), unknown persons (`[NN]`), multilingual encoding.
+Proposal
+: What an agent or an LLM produces.
 
-### Example 2 (API data — project dashboard):
-> Data: JSON REST API with 3 endpoints (projects, tasks, team members). Question: project health overview.
-> Explored: Gantt chart, Kanban board, burndown chart, resource heatmap, dependency graph.
-> Kept: Gantt + burndown + resource heatmap. Rejected: Kanban (no status field in API), dependency graph (relationships not modeled).
-> Data problems surfaced: timestamps in mixed formats, some tasks lack assignee, nested subtasks need flattening.
+Doubted
+: A proposal that anyone taking part in the work, an agent included, has marked as doubtful.
 
-**Transition:** When the mapping is clear enough to document, propose distillation. State what's feasible, what's not, and why.
+Confirmed
+: A proposal confirmed by a person whose expertise reaches as far as the decision requires, or by a validated deterministic rule. Such a rule is an executable check that runs on all of the real data, has been shown on cases with known answers to fail when it should, and has been adopted by the researchers for a defined kind of decision.
 
----
+For each status, who or what set it is recorded, in the form the project already uses for it. Where the project has none, a short note after the statement serves, such as "(proposal, agent, 2026-11-14)" or "(confirmed by the editor, 2026-11-20)".
 
-## Phase 3: Distillation
+Three questions are put to each Promptotype, and they build on one another.
 
-**Goal:** Compress Phases 1-2 knowledge into Promptotyping Documents — domain-adaptive .md files that serve as "Denkumgebung" (thinking environment) for human and LLM.
+1. Does it do what it claims?
+2. Is it warranted by the sources?
+3. Is it adequate to the purpose?
 
-### Context Compression
+An agent can run executable checks and review code for the first question, raise doubts and direct attention for the second, and point to gaps for the third. A Promptotype is accepted for a purpose when the researchers who work with it judge it good enough for that purpose. The agent reports what it built and checked and lists what needs the researchers' decision. Confirmation, scholarly validation and acceptance are recorded only as the judgement of the person who gave it. An agent's account of its own work needs independent confirmation.
 
-> **Context Rot:** LLM performance degrades as context grows. More tokens ≠ better results.
+## Boundaries
 
-Compress: tables over prose, examples over explanations, current state over history, one precise XPath > a paragraph about XML structure. When context grows large and output quality drops (repetition, ignoring instructions), compress actively and tell the user why.
-
-### Promptotyping Documents
-
-Create .md files by **purpose**, with domain-adaptive filenames:
-
-| Purpose | Content | Example Names |
-|---------|---------|--------------|
-| **Domain Knowledge** | Standards, data structures, semantics, scholarship | `knowledge.md`, `tei-structure.md`, `api-schema.md` |
-| **Requirements** | User Stories, Epics, priorities, success criteria | `requirements.md` |
-| **Design** | Visualization/interaction decisions, rejected alternatives with reasons | `design.md` |
-| **Technical** | Architecture, dependencies, workarounds | `implementation.md` |
-| **Journal** | Chronological log: decisions, dead ends, savepoints (git hashes), feedback. When it grows large, `compact` condenses old entries and offloads full originals to `journal-archive.md` | `journal.md`, `journal-archive.md` |
-
-### Requirements Engineering
-
-This is the mechanism that separates Promptotyping from Vibe Coding, because the quality of LLM outputs correlates directly with the quality of requirements.
-
-- Write **User Stories** with role, goal, benefit: "As a social historian, I want to view transaction networks between individuals, so that I can identify key economic relationships."
-- Group into **Epics** (e.g., "Data Import", "Spatial Analysis", "Person Search")
-- Set **priorities**: must-have vs. nice-to-have
-- Define **success criteria**: how do we know it's correct?
-
-### Selective Context Loading
-
-For complex projects, loading all docs into every prompt causes Context Rot — select per task instead:
-
-| Task | Load | Skip |
-|------|------|------|
-| Building a visualization | design.md + relevant user stories + data structure from knowledge.md | full requirements, journal |
-| Data transformation | knowledge.md + implementation.md | design, unrelated stories |
-| New feature | relevant user stories + implementation.md + design.md | journal, completed stories |
-| Debugging | implementation.md + relevant knowledge section | design, requirements |
-| Progress review | journal.md | everything else initially |
-
-### Actions
-
-1. Draft initial docs from Phases 1-2 knowledge
-2. Present to user for review — they are the domain expert
-3. Iterate until docs capture the shared understanding
-4. Organize into a clear folder (e.g., `docs/` or `knowledge/`)
-
-**Example structure:**
-```
-docs/
-├── knowledge.md        # Data structures, standards, domain context
-├── requirements.md     # User Stories grouped by theme
-├── design.md           # Visualization & interaction decisions
-├── implementation.md   # Technical solutions, architecture
-└── journal.md          # Chronological process log
-```
-
-**Transition:** When docs are reviewed and capture the shared understanding, propose starting implementation.
-
----
-
-## Phase 4: Implementation
-
-**Goal:** Iteratively build the artifact using Promptotyping Documents as context, with continuous feedback into docs.
-
-### Iteration Cycle
-
-```
-Load relevant docs → Generate → Expert validates →
-  ├─ Works → Git commit (savepoint) → Next feature
-  └─ Gap found → Update docs FIRST → Regenerate
-```
-
-### Actions
-
-1. Before generating: state which docs you're drawing on and what assumptions you're making
-2. Generate working, runnable code — the expert validates a running artifact, not fragments
-3. After significant output: "Does this match? What's wrong?"
-4. When validation reveals new knowledge: update the relevant .md FIRST, then regenerate
-5. Suggest git commits at stable states: "Good savepoint — timeline works, map is next"
-6. Log decisions and dead ends in journal.md
-
-### Doc-Update Triggers
-
-| Trigger | Update |
-|---------|--------|
-| LLM misunderstands data structure | knowledge doc + clarifying example |
-| Requirements were ambiguous | requirements.md with added precision |
-| Expert corrects domain assumption | knowledge doc |
-| Decision made | journal.md with rationale |
-| Dead end | journal.md, roll back to last savepoint |
-| Colleague feedback | requirements or design doc |
-
-### Quick Diagnostic
-
-When the expert reports a problem: output content wrong → check knowledge doc. Output format/structure wrong → check design or requirements doc. Output ignores constraints → check if the relevant doc was loaded.
-
-### In Agentic Setups (Claude Code, Codex CLI, etc.)
-
-- Read relevant .md files from the project's docs folder at session start
-- Write code, run it, validate output
-- Update .md files when gaps emerge
-- Use `git commit` for savepoints
-
----
-
-## Operations
-
-When invoked with `/promptotyping <operation>` or when the user says an operation name during an active Promptotyping session, read the matching reference file and execute it:
-
-| Operation | Frequency | Reference | What it does |
-|-----------|-----------|-----------|-------------|
-| orient | Every session | [references/orient.md](references/orient.md) | Detect project state, report status |
-| handoff | Every session | [references/handoff.md](references/handoff.md) | Commit + journal + persist status for next orient |
-| check | Regularly | [references/check.md](references/check.md) | Gap analysis, blind spots, update docs |
-| compact | When journal grows | [references/compact.md](references/compact.md) | Archive + condense journal.md, keep recent entries verbatim |
-| distill | Once (setup) | [references/distill.md](references/distill.md) | Create docs from exploration for the first time |
-| verify | Rarely | [references/verify.md](references/verify.md) | Validate external facts via web search |
-
-### Two modes of work
-
-**Setup** (new project, docs don't exist yet):
-`orient → explore data → distill → check → handoff`
-
-**Development** (docs exist, building features):
-`orient → work → check → handoff`
-
-Not every operation is needed every session. Minimum cycle: `orient → (work) → handoff`.
-
-Handoff and compact are the operations with side effects (git commit, journal write) and should only run when the user requests or confirms them. Orient, check, distill, and verify can be suggested proactively — and handoff itself suggests compact once the journal grows large.
-
-If `$ARGUMENTS` matches an operation name, load that reference file. If it doesn't match any operation, treat it as a general Promptotyping request.
-
----
-
-## Interaction Examples
-
-These illustrate tone and depth, not exact phrasing. Adapt to context.
-
-**Phase 1 — Identifying gaps:**
-```
-User: Here's my TEI-XML corpus of medieval charters.
-Agent: I see 342 XML files averaging 4KB each. The documents use TEI P5 with
-        <msDesc> for manuscript descriptions and <body> for transcriptions.
-        I notice there's no schema or ODD file — do you have one? And what's
-        the research question these charters should help answer?
-```
-
-**Phase 2 — Proposing alternatives:**
-```
-Agent: For visualizing charter networks, three approaches could work:
-        1. Force-directed graph — shows who witnesses whose charters. Good for
-           community structure, but gets unreadable beyond ~200 nodes.
-        2. Timeline with facets — when were charters issued, filterable by
-           issuer/witness. Better for temporal patterns.
-        3. Map view — where were charters issued. Requires geocoding place names.
-        Which question matters more to you right now — who, when, or where?
-```
-
-**Phase 3 — Proposing transition:**
-```
-Agent: We've explored the data and established: timeline and map views are
-        feasible, network graph needs node reduction for the full corpus.
-        Date uncertainty affects 23% of documents. I'd suggest we distill
-        this into docs now — starting with knowledge.md for the TEI structure
-        and requirements.md for the user stories. Ready?
-```
-
-**Phase 4 — Flagging assumptions:**
-```
-Agent: I'm generating the map view based on design.md (cluster markers,
-        color by century) and the place-name list from knowledge.md. I'm
-        assuming coordinates from GeoNames — but 12 place names have no
-        match. Should I flag them in the UI or exclude them?
-```
-
----
-
-## Background Resources
-
-If the user wants deeper context on the methodology, point them to:
-- Pollin 2026, "Promptotyping: Zwischen Vibe Coding, Vibe Research und Context Engineering": https://lisa.gerda-henkel-stiftung.de/digitale_geschichte_pollin
-- Pollin 2025, "Promptotyping: Von der Idee zur Anwendung": https://dhcraft.org/excellence/blog/Promptotyping
-- CorrespExplorer docs (real-world Promptotyping Documents): https://github.com/DigitalHumanitiesCraft/CorrespExplorer/tree/main/docs/knowledge
-- Hong et al. 2025, "Context Rot": https://research.trychroma.com/context-rot
+- The user's task, the repository's own agent instructions and its permissions take precedence over this skill.
+- Source material and research data stay accessible for inspection. Rights are clarified before material enters a model or a public repository, and the agent asks when they are unclear.
+- The agent deletes a document, publishes or pushes only when the user has authorised that action.
+- If a source the work depends on cannot be read, the agent says so and reports the dependent result as unchecked.

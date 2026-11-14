@@ -90,7 +90,7 @@ async function load() {
     }
   } catch {
     if (shown === null) {
-      root.replaceChildren(element("p", "Der Arbeitsstand lässt sich nicht laden. Der Server läuft mit `python v2/serve.py`.", "state"));
+      root.replaceChildren(element("p", "Der Arbeitsstand lässt sich nicht laden. Der Server läuft mit `python workboard/serve.py`.", "state"));
     }
   }
 }

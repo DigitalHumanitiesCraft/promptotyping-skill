@@ -1,8 +1,8 @@
 """Serve the working page for version 2 and write ticked items back to the Markdown file.
 
-Usage: python v2/serve.py [port]
+Usage: python workboard/serve.py [port]
 
-The page shows v2/arbeitsstand.md. Ticking an item on the page changes "- [ ]" to "- [x]" in
+The page shows workboard/arbeitsstand.md. Ticking an item on the page changes "- [ ]" to "- [x]" in
 that one line of that one file. The server listens on 127.0.0.1 only.
 """
 
