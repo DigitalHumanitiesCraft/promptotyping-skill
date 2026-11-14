@@ -4,6 +4,7 @@ Changes to the Promptotyping skill, per version. Versions are fixed by Git tags.
 
 ## Unreleased
 
+- A confirmation names the person or the validated deterministic rule that set it, and the agent instructions count among the knowledge documents of the project knowledge base.
 - The definition of Promptotyping, the account of the Promptotype, the three types of knowledge documents, the rules for building and the rules for checking are reworded, so that the skill shares no passage of eight words with the manuscript of the paper. The terms and the procedure are unchanged. The second of the three questions reads "Do the sources warrant it?".
 
 ## 2.0.0, 2026-11-14

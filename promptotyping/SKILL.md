@@ -24,7 +24,7 @@ The work takes four forms, which recur in no fixed sequence.
 
 A Promptotype is what an iteration yields. It consists of a prototype open to use and inspection, the research data it was built from and the project knowledge base, so that every state of the three can be versioned as a single whole.
 
-The project knowledge base is the set of knowledge documents together with the agent instructions in the repository root. The documents fall into three types. The types separate functions and lay down no file structure.
+The project knowledge base is the set of knowledge documents of a project, which lie in the knowledge folder and, for the agent instructions, in the repository root. The documents fall into three types. The types separate functions and lay down no file structure.
 
 - Declarative knowledge documents say what holds, for instance the project's purpose and scope (`project.md`), how the data are structured, what they mean, where they come from and where they have gaps or are uncertain (`data.md`), and what the artefact is to do (`specification.md`).
 - Process knowledge documents record what is open, how the understanding grew and for what reasons, in `journal.md`.
@@ -86,7 +86,7 @@ Three questions are put to each Promptotype, and they build on one another.
 2. Do the sources warrant it?
 3. Is it adequate to the purpose?
 
-An agent can run executable checks and review code for the first question, raise doubts for the second, and point to gaps for the third. The researchers who work with a Promptotype accept it for a purpose once they judge it good enough for that purpose. The agent reports what it built and checked and lists what needs the researchers' decision. Confirmation, scholarly validation and acceptance are recorded only as the judgement of the person who gave it, and what an agent reports about its own work counts only once it is confirmed independently.
+An agent can run executable checks and review code for the first question, raise doubts for the second, and point to gaps for the third. The researchers who work with a Promptotype accept it for a purpose once they judge it good enough for that purpose. The agent reports what it built and checked and lists what needs the researchers' decision. Scholarly validation and acceptance are recorded only as the judgement of the person who gave it, a confirmation names the person or the validated deterministic rule that set it, and what an agent reports about its own work counts only once it is confirmed independently.
 
 ## The journal
 

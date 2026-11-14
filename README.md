@@ -77,7 +77,7 @@ A project adds a document when it has the function for it, such as `design.md` f
 
 ## Checking
 
-The skill keeps apart verification against a standard the project has accepted, agentic review by an agent with a fresh context, and scholarly validation by people who know the sources and the field. What an agent produces is a proposal. Anyone may mark it as doubted, and it is confirmed only by a person with the required expertise or by a validated deterministic rule.
+The skill keeps apart verification against a standard the project has accepted, agentic review by an agent, often with a fresh context, and scholarly validation by people who know the sources and the field. Output of an agent or an LLM is a proposal. Whoever takes part in the work may mark it as doubted, and it is confirmed only by a person with the required expertise or by a validated deterministic rule.
 
 Three questions are put to each Promptotype. Does it do what it claims? Do the sources warrant it? Is it adequate to the purpose? Acceptance for a purpose lies with the researchers who work with the Promptotype.
 
