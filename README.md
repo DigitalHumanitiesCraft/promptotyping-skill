@@ -6,6 +6,8 @@ Agents build prototypes from modelled data and a curated project knowledge base,
 
 Each iteration yields a Promptotype, a prototype that can be used and inspected, together with the knowledge base and the research data from which it was built.
 
+The skill is the installable part of the [Promptotyping specification](https://dhcraft.org/Promptotyping/). Its [repository](https://github.com/DigitalHumanitiesCraft/Promptotyping) holds the document convention, the templates, a tutorial and documented use cases, and carries the same skill under `skills/promptotyping/`.
+
 ## Installation
 
 ```bash
@@ -64,22 +66,15 @@ Three questions are put to each Promptotype. Does it do what it claims? Is it wa
 
 ## Coming from version 1
 
-Version 1.0.0 stays available under the tag [`v1.0.0`](https://github.com/DigitalHumanitiesCraft/promptotyping-skill/tree/v1.0.0). An installed copy does not change by itself.
+Version 1.0.0 stays available under the tag [`v1.0.0`](https://github.com/DigitalHumanitiesCraft/promptotyping-skill/tree/v1.0.0). Installed copies do not change by themselves, and projects built with version 1 keep `docs/` and the names of their documents.
 
-- `orient` keeps its purpose.
-- Exploration, a phase without a call in version 1, is now `explore`.
-- `distill` now also writes epics and user stories. `distil` is accepted as well.
-- `check` leads to `curate review`. As before, it reports and changes nothing.
-- `verify` leads to `curate ground`. It now corrects in place what a web request decides and marks the rest.
-- `handoff` still ends the session and commits without pushing.
-- `compact` leads to the condensing of the journal, which keeps the full originals in `journal-archive.md`. The number of entries to keep is no longer an argument.
-- Open issues and next steps, which stood in every journal entry, now stand in one section `## Open` at the beginning of `journal.md`. The first handoff with version 2 carries them over.
-- The four phases are four forms of work that recur in no fixed sequence.
-- The motto "documents as source of truth" is dropped. Sources and research purpose decide, and the documents can be wrong about the material.
+- `orient`, `distill` and `handoff` keep their purpose. `distill` now also writes epics and user stories.
+- `explore` is new. Exploration was a phase without a call.
+- `check` and `verify` lead to `curate`, and `compact` leads to the condensing of the journal.
+- Open issues and next steps move from every journal entry into one section `## Open` at the beginning of `journal.md`.
+- The phases are forms of work in no fixed sequence, and the motto "documents as source of truth" is dropped, since the documents can be wrong about the material.
 
-Projects built with version 1 keep their folder `docs/` and the names of their documents. The skill finds them there and works with them by their function.
-
-All changes are listed in [CHANGELOG.md](CHANGELOG.md).
+[CHANGELOG.md](CHANGELOG.md) lists every change.
 
 ## Background
 
