@@ -31,25 +31,11 @@ Start the agent in a project folder with your data and say what you want in your
 
 Five subcommands name the moments at which a person calls the skill directly. The syntax is that of Claude Code, and other agents may differ.
 
-### `/promptotyping orient`
-
-Call it when a session begins or the task changes. It establishes where the project stands, changes no file, and names the step that comes next.
-
-### `/promptotyping explore`
-
-Call it when there is new material or a new question to the data. It establishes what the data can and cannot support and records structure, meaning, gaps and uncertainties with their evidence. In a new project it begins with Preparation, in which the researchers name purpose, question and provenance.
-
-### `/promptotyping distill`
-
-Call it when findings are to become the basis for building. It models them as knowledge documents, and it reduces and sharpens. It leaves out what the purpose does not need and makes explicit what the material holds only implicitly. It writes what holds about the material and what the artefact is to do for the researchers, the second as epics and user stories.
-
-### `/promptotyping curate`
-
-Call it when the knowledge documents are to be checked or corrected. It holds their statements against a measure and brings them back into line with it. The agent chooses the measure. Against the project, it compares the documents with the data, the code and the state of the work. As grounding, it compares them with knowledge outside the project. As review, an agent with a fresh context reads documents and artefact critically and reports doubts.
-
-### `/promptotyping handoff`
-
-Call it when a session ends or work passes to someone else. It records in the journal what was done and why, states what is open, and commits. It never pushes. `/promptotyping handoff deep` first curates and then condenses the journal, for a longer pause or a change of hands.
+- `/promptotyping orient` starts a session. It establishes where the project stands and changes no file.
+- `/promptotyping explore` establishes what the data can and cannot support.
+- `/promptotyping distill` models the findings as knowledge documents, with epics and user stories.
+- `/promptotyping curate` checks and corrects the knowledge documents, against the project, against outside sources, or through a review with a fresh context.
+- `/promptotyping handoff` ends a session. It writes the journal, states what is open and commits without pushing.
 
 A session runs `orient`, then the work, then `handoff`. Building itself has no subcommand. It is the agent's ordinary work, and its rules stand in the core of the skill. The agent builds in small steps that can be run and inspected, shows each result to the researchers, and writes a finding into the knowledge documents before the code follows.
 
