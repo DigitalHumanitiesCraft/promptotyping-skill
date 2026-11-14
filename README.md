@@ -15,7 +15,7 @@ Open an agent that can read and write files, such as Claude Code, in the folder 
 ```text
 Install the Promptotyping skill from https://github.com/DigitalHumanitiesCraft/promptotyping-skill as its README describes for the agent you are, and check that it loads. If you cannot install it here, tell me what I have to do myself.
 
-Then run its orient step and explain in plain words what you found, whether Promptotyping fits my aim, what comes next and what stays my decision. I am new to this, so ask me one question at a time.
+Then run its orient step and explain briefly and in plain words what you found, whether Promptotyping fits my aim, what comes next and what stays my decision. I am new to this, so ask me one question at a time.
 
 I want to: [your aim in one or two sentences]
 My material: [what it is and where it lies, or "none yet"]
