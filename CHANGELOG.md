@@ -14,7 +14,7 @@ Version 2 brings the skill into line with the definition of Promptotyping as a w
 - The skill has five subcommands, `orient`, `explore`, `distill`, `curate` and `handoff`. Version 1 had six.
 - `distill` also writes the specification, as personas, epics and user stories with acceptance criteria.
 - `handoff` remains the end of a session. Journal entries have a new form, a heading with date and title and the fields Trigger, Found, Decided, Rejected, Corrected, Changed and Evidence, newest first. A section `## Open` at the beginning of `journal.md`, rewritten at each handoff, replaces the fields for open issues and next steps in every entry.
-- A new project keeps its knowledge base in `knowledge/`, with `project.md`, `data.md`, `specification.md` and `journal.md`. Version 2 carries no calls or document names of version 1, which stays available under the tag `v1.0.0` for projects that continue with it.
+- The knowledge folder is `knowledge/` in the repository root, with `project.md`, `data.md`, `specification.md` and `journal.md`. Version 1 also accepted `docs/` and `promptotyping-docs/`, and `docs/` is now left to a website published from the repository. Version 2 carries no calls or document names of version 1, which stays available under the tag `v1.0.0` for projects that continue with it.
 
 ### Added
 
@@ -23,6 +23,8 @@ Version 2 brings the skill into line with the definition of Promptotyping as a w
 - `handoff deep`, which curates in all three kinds, closes the session and condenses the journal.
 - Rules for building in the core of the skill, which apply whether or not a subcommand was called.
 - Rules for checking in the core of the skill. They name verification, agentic review and scholarly validation, the statuses proposal, doubted and confirmed, and three questions put to each Promptotype.
+
+- Pointers to the templates of the Promptotyping Documents in the repository of the specification, which the skill reads before it creates a document.
 
 ### Replaced
 

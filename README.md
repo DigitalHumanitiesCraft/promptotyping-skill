@@ -68,6 +68,7 @@ Three questions are put to each Promptotype. Does it do what it claims? Is it wa
 
 Version 2 is a new skill and carries no calls or document names of version 1. Version 1.0.0 stays available under the tag [`v1.0.0`](https://github.com/DigitalHumanitiesCraft/promptotyping-skill/tree/v1.0.0) for projects that continue with it, and an installed copy does not change by itself.
 
+- The knowledge folder is `knowledge/`. A project that kept its documents under `docs/` renames the folder once.
 - `orient`, `distill` and `handoff` keep their purpose. `distill` now also writes epics and user stories.
 - `explore` is new. Exploration was a phase without a call.
 - `check`, `verify` and `compact` are gone. Their work lies in `curate` and in `handoff deep`.
