@@ -57,31 +57,38 @@ Version 2 follows this definition in five respects.
 - The work recurs through four forms of work, Preparation, Exploration, Distillation and Implementation. Version 1 calls them phases, which suggests a fixed sequence.
 - What decides whether an artefact fits lies in the sources and the research purpose as the researchers understand them. The knowledge documents guide the work and can themselves be wrong about the material, so the motto of version 1, documents as source of truth, no longer holds in that form.
 - An iteration ends with a promptotype, a prototype that can be used and inspected, together with the project knowledge base and the research data from which it was built. What accumulates is the curated knowledge and the research data. The artefact may be replaced once what working with it revealed has been written back into the project knowledge.
-- Checking has three kinds, verification, agentic review and scholarly validation. A result is a proposal, doubted or confirmed, and only a person with the required expertise or a validated deterministic rule confirms it. Three questions are put to each promptotype: does it do what it claims, is it warranted by the sources, and is it adequate to the purpose? The researchers who work with a promptotype accept it for a purpose, and an agent never declares that.
+- Checking has three kinds, verification, agentic review and scholarly validation, which the core of the skill names. A result is a proposal, doubted or confirmed, and only a person with the required expertise or a validated deterministic rule confirms it. Three questions are put to each promptotype: does it do what it claims, is it warranted by the sources, and is it adequate to the purpose? The researchers who work with a promptotype accept it for a purpose, and an agent never declares that.
 
-### Forms of work and subcommands
+### The five subcommands
 
-The forms of work describe kinds of work, and the subcommands are what a person asks of the agent in the harness. They do not map one to one.
+A subcommand stands for a moment at which a person actually calls it. Version 2 has five.
 
-- Preparation has no subcommand. The researchers assemble the material and its context and name purpose and question. The agent sets up the project folder, asks for purpose, provenance and known limits, records the answers in the researchers' words, and makes the material technically accessible.
-- Exploration is `explore`.
-- Distillation is `distil`, written `distill` in version 1.
-- Implementation is `implement`, which version 1 leaves without a subcommand.
-- `orient` belongs to no form of work. It is the entry that names the one in which the project stands.
+`orient`
+Establishes where the project stands before any work begins. It reads the knowledge base and the repository state, changes no file, and names the step that comes next.
 
-### `orient` and `explore`
+`explore`
+Establishes what the research data can and cannot support. It profiles the data with small scripts and records structure, meaning, gaps and uncertainties with their evidence. It is complete for the moment when the researchers have checked the account against what they know of the material, including the statements the agent is least sure of, and confirm that nothing they consider essential is missing or wrong.
 
-The two subcommands are kept apart by what they examine.
+`distill`
+Models what exploration and checking have shown as the knowledge documents from which the artefact is built. Like all modelling it reduces and sharpens. It leaves out what the stated purpose does not need, and it makes explicit the distinctions, conditions and uncertainties that the material holds only implicitly and that an adequate implementation requires. It writes two things, what holds about the material and what the artefact is to do for the researchers, the second as epics and user stories. The material itself stays where it is.
 
-`orient` establishes where the project stands before the agent does anything. It runs at the start of a session or when the task changes, reads the knowledge base and the repository state, and looks at the research data only on the surface, meaning which files exist, in which formats and of what size. It changes no file. It ends with a statement of what the project is, where it stands and which step comes next.
+`curate`
+Maintains the existing knowledge documents. It corrects what is wrong, updates what has changed, makes vague statements concrete, tightens the text, and removes what no longer holds, the last only with the researchers' approval. It has three kinds, and the agent chooses the one the situation calls for. Against the project itself, it compares the documents with the data, the code and the state of the work. As grounding, it compares them with knowledge outside the project, such as the web, the literature or a knowledge vault, and each statement ends as supported with its source, corrected with the source that contradicts it, or marked as unsupported. As review, an agent with a fresh context questions the whole critically and reports doubts before anything is changed.
 
-`explore` establishes what the research data can and cannot support, so that the project learns what it had not yet recorded about its material. It runs in a new project, when data are added or changed, when a new question is put to the data, or when a finding contradicts an assumption about them. The agent profiles the data with small scripts and writes down structure, meaning, gaps and uncertainties with their evidence. It changes the knowledge base and never the data. It is sufficient for the moment once the researchers recognise their material in the results, and that judgement is theirs.
+`handoff`
+Closes a session so that the next one can continue from the documents, and is the counterpart of `orient`. It commits the work, records in the journal what was done and why, and states what is open. It never pushes.
+
+### What has no subcommand
+
+- Preparation. The researchers assemble the material and its context and name purpose and question. The agent sets up the project folder, asks for purpose, provenance and known limits, records the answers in the researchers' words, and makes the material technically accessible.
+- Implementation. Building is the agent's ordinary work between `orient` and `handoff`. Its rules stand in the core of the skill and always apply: build in small steps that can be run and inspected, show each result to the researchers, write a finding into the knowledge documents before the code follows, prefer a rule to an LLM, and preserve raw model output.
+- The calls `check` and `verify` of version 1 remain valid and lead to `curate`. `compact` leads to the deep form of `handoff`.
+- `knowledge/handoff.md` of the specification is dropped. The journal is the working diary and also carries what is open.
 
 ### Open
 
-- The journal. It is to be condensed without loss of information, with the full history kept in an archive document, in Git, or in both. The subcommand needs a name other than `compact`, which coding agents already use for compacting the conversation.
-- The end of a session. Version 1 ends every session with `handoff`. In the specification, `handoff` is the inbox for inputs from other sessions, reviews and partners, so one of the two needs another name.
-- `check` and `verify`, which the specification folds into `curate`.
+- Where in the journal the open points stand, and how a deep `handoff` differs from the quick one that ends every session.
+- Condensing the journal without loss of information, with the full history kept in an archive document, in Git, or in both.
 - Projects built with version 1, which keep their documents under `docs/` and have no action layer.
 - Which repository is the source of the skill, how it is delivered, its licence, and how the authors of the earlier versions are credited.
 

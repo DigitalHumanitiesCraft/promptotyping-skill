@@ -11,34 +11,54 @@ Promptotyping ist eine Arbeitspraxis, die Forschungsdaten und ihre Kontexte mit 
 - [x] Maß sind die Quellen und der Forschungszweck. Die Wissensdokumente leiten die Arbeit und können sich über das Material irren.
   Der Leitsatz von Version 1, Dokumente als Quelle der Wahrheit, entfällt in dieser Form.
 - [x] Eine Iteration endet mit einem Promptotype, dem Prototyp zusammen mit Wissensbasis und Forschungsdaten.
-- [ ] Der Skill kennt die drei Prüfarten Verification, Agentic Review und Scholarly Validation.
-  Im Skill der Spezifikation stehen sie schon, in Version 1 fehlen sie.
-- [ ] Der Skill kennt die drei Status Vorschlag, bezweifelt und bestätigt.
-- [ ] Der Skill stellt jedem Promptotype die drei Fragen: Tut er, was er vorgibt? Ist er von den Quellen gedeckt? Ist er dem Zweck angemessen?
+- [ ] Der Kern des Skills nennt die drei Prüfarten Verification, Agentic Review und Scholarly Validation.
+- [ ] Der Kern des Skills nennt die drei Status Vorschlag, bezweifelt und bestätigt.
+- [ ] Der Kern des Skills stellt jedem Promptotype die drei Fragen: Tut er, was er vorgibt? Ist er von den Quellen gedeckt? Ist er dem Zweck angemessen?
 
-## Arbeitsformen und Subcommands
+## Die fünf Subcommands
 
-Die Arbeitsformen sind Arten von Arbeit. Die Subcommands sind das, was man im Harness vom Agenten verlangt. Beides deckt sich nicht eins zu eins.
+Ein Subcommand steht für einen Moment, in dem man ihn wirklich aufruft. Es sind fünf Momente: Die Sitzung beginnt, es gibt neues Material, aus Befunden soll die Arbeitsgrundlage werden, etwas in den Dokumenten ist zu prüfen, die Sitzung endet.
 
+- [x] Version 2 hat fünf Subcommands: `orient`, `explore`, `distill`, `curate` und `handoff`.
 - [x] `orient` stellt fest, wo das Projekt steht, bevor der Agent etwas tut. Es ändert keine Datei und nennt den nächsten Schritt.
-- [x] `explore` stellt fest, was die Daten tragen und wo sie enden. Es schreibt Skripte, Profil und Wissen über die Daten und endet, wenn die Forschenden ihr Material wiedererkennen.
+- [x] `explore` stellt fest, was die Daten tragen und wo sie enden. Es schreibt Skripte, Profil und Wissen über die Daten.
+  Es ist vorerst fertig, wenn die Forschenden die Beschreibung an dem geprüft haben, was sie über ihr Material wissen, und nichts Wesentliches fehlt oder falsch ist.
+- [x] `distill` modelliert die Befunde als Wissensdokumente, aus denen gebaut wird. Es reduziert und schärft: Was der Zweck nicht braucht, bleibt im Material, und was dort nur implizit steckt, wird ausdrücklich.
+- [x] `curate` pflegt die vorhandenen Wissensdokumente: korrigieren, aktualisieren, konkretisieren, straffen und entfernen, was nicht mehr gilt.
+- [x] `curate` hat drei Arten, und der Agent wählt selbst, welche die Lage verlangt.
+  Gegen das Projekt selbst, also Daten, Code und Stand. Als `ground` gegen Wissen außerhalb, also Web, Literatur oder ein Vault. Als `review` mit frischem Kontext, der das Ganze kritisch in Frage stellt.
+- [x] `handoff` beendet eine Sitzung kontrolliert und ist das Gegenstück zu `orient`.
+
+## Was keinen Subcommand hat
+
 - [x] Preparation hat keinen Subcommand. Die Forschenden tragen Material und Kontext zusammen, der Agent richtet ein, fragt nach und macht das Material zugänglich.
-- [ ] Distillation hat den Subcommand `distil`.
-  Version 1 schreibt `distill`. Zu klären ist die Schreibweise und ob der alte Aufruf weiter angenommen wird.
-- [ ] Implementation hat den Subcommand `implement`.
-  Version 1 hat dafür keinen Aufruf.
-- [ ] Die Kuration des Wissens hat die Subcommands `curate`, `synthesise` und `prune`.
-  Das Paper nennt nur Knowledge Curation. Die drei Namen stammen aus dem Skill der Spezifikation.
-- [ ] `check` und `verify` aus Version 1 bleiben eigene Aufrufe oder gehen in `curate` auf.
+- [x] Implementation hat keinen Subcommand. Bauen ist die normale Arbeit des Agenten zwischen `orient` und `handoff`.
+  Die Regeln dafür stehen im Kern des Skills und gelten immer: in kleinen, ansehbaren Schritten bauen, das Ergebnis zeigen, Befunde zuerst ins Wissen schreiben und dann in den Code, Regeln vor LLM, Rohausgabe bewahren.
+- [x] User Stories und Epics entstehen in `distill`. Einen eigenen Aufruf wie `specify` gibt es nicht.
+  `distill` schreibt zwei Dinge: was über das Material gilt und was das Artefakt für die Forschenden leisten soll.
+- [x] `ground` und `review` sind keine eigenen Subcommands, sondern Arten von `curate`.
+- [x] `prune` und `synthesise` aus dem Skill der Spezifikation entfallen. Das Entfernen gehört zu `curate`.
+- [x] `check` und `verify` aus Version 1 bleiben als alte Aufrufe gültig und führen zu `curate`.
+- [ ] `distill` schreibt sich mit zwei l wie in Version 1, und `distil` wird als gleichwertiger Aufruf angenommen.
+- [ ] `distill` erhebt User Stories nach dem Scholar-Centred Design der Dissertation: Persona, Epic, User Story in der Form „As a …, I want to …, so that I can …“, am Material mit den Forschenden.
+  Dazu kommt je Story ein Kriterium, das die Forschenden am laufenden Artefakt entscheiden können. Das Kriterium steht nicht in der Dissertation.
+- [ ] `curate` nennt am Ende, auf welche Arten es nicht geprüft hat.
 
 ## Sitzung und Journal
 
-- [ ] Das Sitzungsende hat einen eigenen Subcommand mit eigenem Namen.
-  Version 1 beendet jede Sitzung mit `handoff`. In der Spezifikation ist `handoff` der Eingangskorb.
-- [ ] Offene Punkte und nächste Schritte vom Sitzungsende haben einen festen Ort.
-  Zur Wahl stehen `plan.md` und `handoff.md`. Die Journal-Vorlage schließt sie aus.
-- [ ] Das Verdichten des Journals hat einen neuen Namen.
-  `compact` ist im Harness schon belegt. Vorschlag ist `condense`.
+`orient` und `handoff` sind Gegenstücke. `orient` nimmt Kontext auf, `handoff` gibt ihn kontrolliert ab, an die nächste Sitzung oder an einen anderen Agenten oder Menschen. Was `handoff` schreibt, liest das nächste `orient`.
+
+- [x] `handoff` committet und pusht nicht. Das Pushen bleibt bei den Forschenden.
+- [x] Das Journal ist das Arbeitstagebuch und trägt auch den Blick nach vorn. `handoff.md` entfällt, weil das Journal diese Funktion übernimmt.
+- [ ] Der schnelle `handoff` läuft am Ende jeder Sitzung: committen, Journaleintrag schreiben, Offenes festhalten.
+- [ ] Der tiefe `handoff` läuft vor einer längeren Pause oder einer Übergabe an andere: zusätzlich `curate` in allen drei Arten und das Verdichten des Journals.
+  Vorschlag ist ein Aufruf mit zwei Tiefen statt zweier Befehle.
+- [ ] Das Offene steht im Journal an einer festen Stelle.
+  Zur Wahl stehen ein Abschnitt Offen am Anfang von `journal.md`, den jeder `handoff` neu schreibt, und eine Liste am Ende des jüngsten Eintrags, die jeder `handoff` fortschreibt.
+- [ ] Die Übergabe eines Arbeitsschritts an einen anderen Agenten ist derselbe `handoff` mit benanntem Empfänger.
+  Er schreibt die Übergabe in das Offene im Journal des Empfängers.
+- [ ] `plan.md` trägt angenommene Arbeit, die noch nicht begonnen ist. Das Offene im Journal trägt, was die nächste Sitzung braucht, um Angefangenes fortzusetzen.
+- [ ] Das Verdichten des Journals ist Teil des tiefen `handoff` und hat keinen eigenen Aufruf. `compact` aus Version 1 führt dorthin.
 - [ ] Beim Verdichten geht keine Information verloren. Die vollständige Historie liegt in `journal-archive.md`, in Git oder in beidem.
   Die Spezifikation schließt das Archiv seit dem 21.08.2026 aus. Vorschlag ist das Archiv als Regelfall, nur angehängt und bei `orient` nicht gelesen.
 - [ ] Feste Schwellen und das Fenster der jüngsten Einträge aus Version 1 gelten weiter oder entfallen.
@@ -47,7 +67,6 @@ Die Arbeitsformen sind Arten von Arbeit. Die Subcommands sind das, was man im Ha
 
 - [ ] `orient` erkennt Projekte aus Version 1 mit `docs/` und ohne Action Layer.
 - [ ] Projekte aus Version 1 werden geführt umgestellt oder dürfen in ihrer Form bleiben.
-- [ ] Die alten Aufrufe `check`, `verify` und `compact` werden angenommen und umgeleitet.
 - [ ] Ein Repository ist die Quelle des Skills, das andere wird Spiegel, Zeiger oder archiviert.
 - [ ] Die Lizenz ist MIT oder CC BY 4.0.
 - [ ] README, CITATION.cff und Metadaten nennen die Urheber der ersten Fassungen.
@@ -57,8 +76,10 @@ Die Arbeitsformen sind Arten von Arbeit. Die Subcommands sind das, was man im Ha
 
 - [x] `orient` und `explore` stehen im Skill der Spezifikation.
 - [x] Das README dieses Repositorys beschreibt den Stand von Version 2.
-- [ ] `explore` kommt als Reference-Datei in die ausgelieferte Version 1.
-  Das wäre Version 1.1.0 und ändert keinen bestehenden Aufruf.
+- [ ] Der Skill der Spezifikation geht von acht Operationen auf die fünf Subcommands.
+- [ ] `handoff.md` ist in den bestehenden Repositories aufgelöst und sein Inhalt im Journal aufgegangen.
+  Betroffen sind rund 45 Repositories. Vorlage, Konvention und Skill ziehen zuerst nach.
 - [ ] Skill und Konvention im Vault ziehen nach.
 - [ ] Das Paper erhält die These zur Exploration: Je mehr man über seine Domäne weiß, desto besser kann man explorieren.
+- [ ] Das Paper sagt, dass Distillation als Modellieren reduziert und schärft.
 - [ ] Das Paper nennt den Skill in ein bis zwei Sätzen.
