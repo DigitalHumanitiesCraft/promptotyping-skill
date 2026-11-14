@@ -8,6 +8,21 @@ Each iteration yields a Promptotype, a prototype that can be used and inspected,
 
 The skill is the installable part of the [Promptotyping specification](https://dhcraft.org/Promptotyping/). Its [repository](https://github.com/DigitalHumanitiesCraft/Promptotyping) holds the document convention, the templates, a tutorial and documented use cases, and carries the same skill under `skills/promptotyping/`.
 
+## Start with a prompt
+
+Open an agent that can read and write files, such as Claude Code, in the folder with your material, fill in the last two lines and paste the prompt. The agent installs the skill, looks at what is there and tells you what comes next. The [site](https://dhcraft.org/Promptotyping/#skill) carries the same prompt with a copy button.
+
+```text
+Install the Promptotyping skill from https://github.com/DigitalHumanitiesCraft/promptotyping-skill as its README describes for the agent you are, and check that it loads. If you cannot install it here, tell me what I have to do myself.
+
+Then run its orient step and explain in plain words what you found, whether Promptotyping fits my aim, what comes next and what stays my decision. I am new to this, so ask me one question at a time.
+
+I want to: [your aim in one or two sentences]
+My material: [what it is and where it lies, or "none yet"]
+```
+
+In a repository you already work in, the first sentence and `/promptotyping orient` suffice.
+
 ## Installation
 
 ```bash
@@ -24,6 +39,8 @@ cp -r promptotyping ~/.cursor/skills/    # Cursor
 cp -r promptotyping .claude/skills/       # Claude Code
 cp -r promptotyping .agents/skills/       # Codex CLI, Gemini CLI, Cursor
 ```
+
+An agent without a shell cannot run these commands. In the Claude apps, download this repository, zip the folder `promptotyping` and upload it in the settings under Skills, as [Anthropic's guide to distributing skills](https://claude.com/resources/guides/the-complete-guide-to-building-skills-for-claude/distribution-and-sharing) describes.
 
 The skill follows the open Agent Skills standard. It is written for [Claude Code](https://code.claude.com/docs/en/skills) and works with any agent that supports the standard. The hint for arguments in its frontmatter is an extension of Claude Code that other agents ignore.
 
