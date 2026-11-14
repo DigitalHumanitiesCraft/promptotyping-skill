@@ -1,10 +1,10 @@
 # Promptotyping
 
-An [Agent Skill](https://agentskills.io/specification) for Promptotyping, a working practice for translating research data and their contexts, with frontier Large Language Model (LLM) agents, into research artefacts that fit the researchers' purposes and ways of working. Such artefacts are tools, visualisations, editions and data workflows.
+An [Agent Skill](https://agentskills.io/specification) for Promptotyping, a working practice in which research data and their contexts are translated, with the help of frontier Large Language Model (LLM) agents, into research artefacts that suit the purposes of the researchers and the ways in which they work. Such artefacts are tools, visualisations, editions and data workflows.
 
-Agents build prototypes from modelled data and a curated project knowledge base, a small set of Markdown documents that researchers and agent keep in the repository. The prototype is a means of knowing. Working with it shows what the data support and what the project needs, and what checking and use reveal is curated back into the knowledge base. What decides whether an artefact fits lies in the sources and the research purpose as the researchers understand them.
+The agents build prototypes on two foundations, modelled data and a project knowledge base that is curated, a small set of Markdown documents that researchers and agent keep in the repository. The prototype serves as a means of knowing. Work with it shows what the data can carry and what the project still needs, and whatever checking and use bring to light is curated back into the knowledge base. Whether an artefact fits is decided by the sources and by the research purpose, in the understanding the researchers have of both.
 
-Each iteration yields a Promptotype, a prototype that can be used and inspected, together with the knowledge base and the research data from which it was built.
+Each iteration yields a Promptotype, a prototype open to use and inspection, which counts along with the knowledge base and with the research data it was built from.
 
 The skill is the installable part of the [Promptotyping specification](https://dhcraft.org/Promptotyping/). Its [repository](https://github.com/DigitalHumanitiesCraft/Promptotyping) holds the document convention, the templates, a tutorial and documented use cases, and carries the same skill under `skills/promptotyping/`.
 
@@ -79,7 +79,7 @@ A project adds a document when it has the function for it, such as `design.md` f
 
 The skill keeps apart verification against a standard the project has accepted, agentic review by an agent with a fresh context, and scholarly validation by people who know the sources and the field. What an agent produces is a proposal. Anyone may mark it as doubted, and it is confirmed only by a person with the required expertise or by a validated deterministic rule.
 
-Three questions are put to each Promptotype. Does it do what it claims? Is it warranted by the sources? Is it adequate to the purpose? Acceptance for a purpose lies with the researchers who work with the Promptotype.
+Three questions are put to each Promptotype. Does it do what it claims? Do the sources warrant it? Is it adequate to the purpose? Acceptance for a purpose lies with the researchers who work with the Promptotype.
 
 ## Coming from version 1
 

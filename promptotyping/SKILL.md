@@ -1,6 +1,6 @@
 ---
 name: promptotyping
-description: "Guides an agent in Promptotyping, a working practice for translating research data and their contexts into research artefacts such as tools, visualisations, editions and data workflows, built from a curated project knowledge base. Use when a user invokes Promptotyping, works in a repository whose knowledge folder guides the agent, or asks to orient in a project, explore research data, distil findings into knowledge documents, curate, ground or review those documents, or hand a session off."
+description: "Guides an agent in Promptotyping, a working practice that translates research data and their contexts into research artefacts such as tools, visualisations, editions and data workflows, built from a curated project knowledge base. Use when a user invokes Promptotyping, works in a repository whose knowledge folder guides the agent, or asks to orient in a project, explore research data, distil findings into knowledge documents, curate, ground or review those documents, or hand a session off."
 argument-hint: "[orient|explore|distill|curate|handoff]"
 license: MIT
 compatibility: "Designed for Claude Code. Compatible with any agent that supports the Agent Skills standard (agentskills.io). Needs Git, and network access only for grounding."
@@ -11,7 +11,7 @@ metadata:
 
 # Promptotyping
 
-Promptotyping is a working practice for translating research data and their contexts, with frontier Large Language Model (LLM) agents, into research artefacts that fit the researchers' purposes and ways of working. Agents build prototypes from modelled data and a curated project knowledge base, and what checking and use of a prototype reveal is curated back into that knowledge base. What decides whether an artefact fits lies in the sources and the research purpose as the researchers understand them, so the knowledge documents can themselves be wrong about the material. The artefact may be replaced once what working with it revealed has been curated back.
+Promptotyping is a working practice in which research data and their contexts are translated, with the help of frontier Large Language Model (LLM) agents, into research artefacts that suit the purposes of the researchers and the ways in which they work. The agents build prototypes on two foundations, modelled data and a project knowledge base that is curated, and whatever checking and use of a prototype bring to light is curated back into that knowledge base. Whether an artefact fits is decided by the sources and by the research purpose, in the understanding the researchers have of both, so the knowledge documents can themselves be wrong about the material. The artefact may be replaced once what working with it revealed has been curated back.
 
 ## Terms
 
@@ -22,13 +22,13 @@ The work takes four forms, which recur in no fixed sequence.
 - Distillation writes that understanding into the knowledge documents.
 - Implementation builds the artefact from them in bounded tasks.
 
-A Promptotype is what an iteration yields, a prototype that can be used and inspected, together with the project knowledge base and the research data from which it was built, so that each state can be versioned as a whole.
+A Promptotype is what an iteration yields. It is a prototype open to use and inspection, and it counts along with the project knowledge base and with the research data it was built from, which lets every state be versioned as one.
 
-The project knowledge base is the set of knowledge documents together with the agent instructions in the repository root. The documents are of three types, which distinguish functions and prescribe no file structure.
+The project knowledge base is the set of knowledge documents together with the agent instructions in the repository root. The documents fall into three types. The types separate functions and lay down no file structure.
 
-- Declarative knowledge documents state what holds, for instance the project's purpose and scope (`project.md`), the structure, meaning, provenance, gaps and uncertainties of the data (`data.md`), and what the artefact is to do (`specification.md`).
-- Process knowledge documents state what is open and how the understanding developed and why, in `journal.md`.
-- Agent instruction documents state how agents are to work, with procedures, constraints, the checks to be run and pointers to the relevant knowledge, in `CLAUDE.md` or `AGENTS.md`.
+- Declarative knowledge documents say what holds, for instance the project's purpose and scope (`project.md`), how the data are structured, what they mean, where they come from and where they have gaps or are uncertain (`data.md`), and what the artefact is to do (`specification.md`).
+- Process knowledge documents record what is open, how the understanding grew and for what reasons, in `journal.md`.
+- Agent instruction documents tell agents how to work. They hold procedures, constraints, the checks to run and pointers to the knowledge a task needs, and they are named `CLAUDE.md` or `AGENTS.md`.
 
 The knowledge folder is `knowledge/` in the repository root, and it holds the knowledge documents. A folder `docs/` is left to a website published from the repository. The file names in this skill are the defaults and stand for the document with that function. A project adds a document when it has the function for it, such as `design.md` for an artefact with an interface or `testing.md` for what its tests guarantee and how they are run. The knowledge documents follow the Promptotyping Documents of the specification, whose repository https://github.com/DigitalHumanitiesCraft/Promptotyping holds one template per document and the convention they follow under `templates/`. A template is readable as plain Markdown at `https://dhcraft.org/Promptotyping/templates/{slug}.md`, with the slugs `project`, `data`, `domain-knowledge`, `specification`, `design`, `architecture`, `testing`, `plan`, `journal`, `index` and `action-layer`, and the convention at `convention`. Before creating a document, read its template and follow it as far as the material fills it, and tell the user which template the document follows. Without network access, write the document by its function as this skill describes it.
 
@@ -56,37 +56,37 @@ Where a finding belongs follows from its reach. A single statement or requiremen
 
 These rules apply whenever the agent builds, whether or not a subcommand was called.
 
-1. Build in bounded tasks, each small enough that its result can be run and inspected. State which documents the task draws on and which assumptions it makes.
-2. Compare each result with the knowledge base, show it to the researchers and stop for their inspection, since many requirements only become clear in front of a running artefact. For a web artefact, start a local server and give the address.
+1. Build one bounded task at a time, and keep a task small enough that you can run and inspect its result. State which documents the task draws on and which assumptions it makes.
+2. Compare each result with the knowledge base, show it to the researchers and stop for their inspection, since a running artefact is what makes many requirements clear in the first place. For a web artefact, start a local server and give the address.
 3. When a result reveals missing or wrong knowledge, write the finding into the responsible knowledge document first and let the code follow. Decide first where the fault arose, in knowledge about the data, in a requirement, in a design decision or in the agent instructions.
-4. Where rules or mappings suffice to process research data, write a procedure that can be inspected, tested and rerun. Where an LLM must produce data directly, preserve its raw output, so that every correction can be measured against it, and treat each item as a proposal. An artefact that shows unconfirmed data shows which statements have been confirmed and by whom.
+4. Where rules or mappings suffice to process research data, write a procedure that can be inspected, tested and rerun. Where an LLM must produce data directly, preserve its raw output, against which every later correction can then be measured, and treat each item as a proposal. An artefact that shows unconfirmed data marks the statements that are confirmed and names who confirmed them.
 5. Select the context for each task. Load the documents the task needs and leave the others out, and work on large data through code, so that only a profile and selected examples enter the context.
 6. Before a decision on design, propose alternatives and name what each trades for what.
 7. Never change the source material in `data/`. Data the project produces lie in a folder of their own and are versioned with the knowledge base and the artefact. Commit at stable states.
 
 ## Checking
 
-Three kinds of checking stay apart, because they differ in what a judgement rests on.
+Three kinds of checking stay apart, because a judgement rests on something different in each.
 
-- Verification establishes whether a result conforms to a standard the project has accepted, at its strongest through an executable check, code that decides whether a result meets a stated condition. An executable check is itself checked for whether it runs against the code the artefact actually uses, covers all of the real data and can fail. A test fixture confirms nothing about the data.
-- Agentic review is the examination of code, data or knowledge documents by an agent, often with a fresh context. Its findings are evidence.
-- Scholarly validation is the judgement of people with knowledge of the sources and the field on whether a result is warranted by the sources and adequate to the research purpose.
+- Verification settles whether a result meets a standard that the project has adopted. It is strongest as an executable check, that is, code deciding whether a stated condition holds for a result. An executable check is itself checked for whether it runs against the code the artefact actually uses, covers all of the real data and can fail. A test fixture confirms nothing about the data.
+- In agentic review an agent examines code, data or knowledge documents, often with a fresh context. Its findings are evidence.
+- Scholarly validation is a judgement by people who know the sources and the field. They decide whether the sources warrant a result and whether it is adequate to the research purpose.
 
-A result has one of three statuses, proposal, doubted and confirmed.
+Every result carries one of three statuses, proposal, doubted or confirmed.
 
 - A proposal is what an agent or an LLM produces.
-- A proposal is doubted when anyone taking part in the work, an agent included, has marked it as doubtful.
-- A proposal is confirmed only by a person whose expertise reaches as far as the decision requires or by a validated deterministic rule. Such a rule is an executable check that runs on all of the real data, has been shown on cases with known answers to fail when it should, and has been adopted by the researchers for a defined kind of decision.
+- A proposal is doubted once any participant in the work, agents among them, has marked it as doubtful.
+- Only two things confirm a proposal, a person whose expertise extends as far as the decision demands, or a validated deterministic rule. A rule of this kind is an executable check that runs over the whole of the real data, has failed where it should on cases whose answers are known, and has been adopted by the researchers for a defined kind of decision.
 
 Who or what set a status is recorded in the form the project uses for it, and otherwise in a short note after the statement, such as "(proposal, agent, 2026-11-14)" or "(confirmed by the editor, 2026-11-20)".
 
 Three questions are put to each Promptotype, and they build on one another.
 
 1. Does it do what it claims?
-2. Is it warranted by the sources?
+2. Do the sources warrant it?
 3. Is it adequate to the purpose?
 
-An agent can run executable checks and review code for the first question, raise doubts for the second, and point to gaps for the third. A Promptotype is accepted for a purpose when the researchers who work with it judge it good enough for that purpose. The agent reports what it built and checked and lists what needs the researchers' decision. Confirmation, scholarly validation and acceptance are recorded only as the judgement of the person who gave it, and an agent's account of its own work needs independent confirmation.
+An agent can run executable checks and review code for the first question, raise doubts for the second, and point to gaps for the third. The researchers who work with a Promptotype accept it for a purpose once they judge it good enough for that purpose. The agent reports what it built and checked and lists what needs the researchers' decision. Confirmation, scholarly validation and acceptance are recorded only as the judgement of the person who gave it, and what an agent reports about its own work counts only once it is confirmed independently.
 
 ## The journal
 
@@ -120,6 +120,6 @@ The entries follow under `## Entries`, newest first, one per coherent step of th
 ## Boundaries
 
 - The user's task, the repository's own agent instructions and its permissions take precedence over this skill.
-- Source material and research data stay accessible for inspection. Rights are clarified before material enters a model or a public repository, and the agent asks when they are unclear.
+- Source material and research data stay accessible for inspection. Rights are settled before any material reaches a model or a public repository, and the agent asks when they are unclear.
 - The agent deletes a document, publishes or pushes only when the user has authorised that action.
 - If a source the work depends on cannot be read, the agent says so and reports the dependent result as unchecked.

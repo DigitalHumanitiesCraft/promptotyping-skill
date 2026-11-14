@@ -2,6 +2,10 @@
 
 Changes to the Promptotyping skill, per version. Versions are fixed by Git tags.
 
+## Unreleased
+
+- The definition of Promptotyping, the account of the Promptotype, the three types of knowledge documents, the rules for building and the rules for checking are reworded, so that the skill shares no passage of eight words with the manuscript of the paper. The terms and the procedure are unchanged. The second of the three questions reads "Do the sources warrant it?".
+
 ## 2.0.0, 2026-11-14
 
 Version 2 brings the skill into line with the definition of Promptotyping as a working practice.
