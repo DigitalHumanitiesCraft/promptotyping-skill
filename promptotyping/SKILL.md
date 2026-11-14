@@ -11,7 +11,7 @@ metadata:
 
 # Promptotyping
 
-Promptotyping is a working practice in which research data and their contexts are translated, with the help of frontier Large Language Model (LLM) agents, into research artefacts that suit the purposes of the researchers and the ways in which they work. The agents build prototypes on two foundations, modelled data and a project knowledge base that is curated, and whatever checking and use of a prototype bring to light is curated back into that knowledge base. Whether an artefact fits is decided by the sources and by the research purpose, in the understanding the researchers have of both, so the knowledge documents can themselves be wrong about the material. The artefact may be replaced once what working with it revealed has been curated back.
+Promptotyping is a working practice in which research data and their contexts are translated into research artefacts with frontier Large Language Model (LLM) agents, so that the artefacts fit the purposes of the researchers and the ways in which they work. The agents build prototypes from modelled data and from a curated project knowledge base, and whatever checking and use of a prototype bring to light is curated back into that knowledge base. Whether an artefact fits is decided by the sources and by the research purpose, as the researchers understand both, so the knowledge documents can themselves be wrong about the material. The artefact may be replaced once what working with it revealed has been curated back.
 
 ## Terms
 
@@ -22,7 +22,7 @@ The work takes four forms, which recur in no fixed sequence.
 - Distillation writes that understanding into the knowledge documents.
 - Implementation builds the artefact from them in bounded tasks.
 
-A Promptotype is what an iteration yields. It is a prototype open to use and inspection, and it counts along with the project knowledge base and with the research data it was built from, which lets every state be versioned as one.
+A Promptotype is what an iteration yields. It consists of a prototype open to use and inspection, the research data it was built from and the project knowledge base, so that every state of the three can be versioned as a single whole.
 
 The project knowledge base is the set of knowledge documents together with the agent instructions in the repository root. The documents fall into three types. The types separate functions and lay down no file structure.
 

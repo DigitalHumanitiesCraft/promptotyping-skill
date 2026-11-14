@@ -1,12 +1,12 @@
 # Promptotyping
 
-An [Agent Skill](https://agentskills.io/specification) for Promptotyping, a working practice in which research data and their contexts are translated, with the help of frontier Large Language Model (LLM) agents, into research artefacts that suit the purposes of the researchers and the ways in which they work. Such artefacts are tools, visualisations, editions and data workflows.
+An [Agent Skill](https://agentskills.io/specification) for Promptotyping, a working practice in which research data and their contexts are translated into research artefacts with frontier Large Language Model (LLM) agents, so that the artefacts fit the purposes of the researchers and the ways in which they work. Such artefacts are tools, visualisations, editions and data workflows.
 
-The agents build prototypes on two foundations, modelled data and a project knowledge base that is curated, a small set of Markdown documents that researchers and agent keep in the repository. The prototype serves as a means of knowing. Work with it shows what the data can carry and what the project still needs, and whatever checking and use bring to light is curated back into the knowledge base. Whether an artefact fits is decided by the sources and by the research purpose, in the understanding the researchers have of both.
+The agents build prototypes from modelled data and from a curated project knowledge base, a small set of Markdown documents that researchers and agent keep in the repository. The prototype serves as a means of knowing. Working on it shows which claims the data support and what the project still lacks, and whatever checking and use bring to light is curated back into the knowledge base. Whether an artefact fits is decided by the sources and by the research purpose, as the researchers understand both.
 
-Each iteration yields a Promptotype, a prototype open to use and inspection, which counts along with the knowledge base and with the research data it was built from.
+Each iteration yields a Promptotype, which consists of a prototype open to use and inspection, the knowledge base and the research data the prototype was built from.
 
-The skill is the installable part of the [Promptotyping specification](https://dhcraft.org/Promptotyping/). Its [repository](https://github.com/DigitalHumanitiesCraft/Promptotyping) holds the document convention, the templates, a tutorial and documented use cases, and carries the same skill under `skills/promptotyping/`.
+The skill is the installable part of the [Promptotyping specification](https://dhcraft.org/Promptotyping/). Its [repository](https://github.com/DigitalHumanitiesCraft/Promptotyping) holds the document convention, the templates, the knowledge base of the practice and documented use cases.
 
 ## Start with a prompt
 
