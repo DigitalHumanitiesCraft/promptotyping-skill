@@ -39,7 +39,7 @@ Five subcommands name the moments at which a person calls the skill directly. Th
 - `/promptotyping curate` checks and corrects the knowledge documents, against the project, against outside sources, or through a review with a fresh context.
 - `/promptotyping handoff` ends a session. It writes the journal, states what is open and commits without pushing.
 
-A session runs `orient`, then the work, then `handoff`. Building itself has no subcommand. It is the agent's ordinary work, and its rules stand in the core of the skill. The agent builds in small steps that can be run and inspected, shows each result to the researchers, and writes a finding into the knowledge documents before the code follows.
+A session runs `orient`, then the work, then `handoff`. Building itself has no subcommand. It is the agent's ordinary work, and its rules stand in the core of the skill. The agent builds in small steps that can be run and inspected, writes an executable check before the code where a rule can decide a requirement, shows each result to the researchers, and writes a finding into the knowledge documents before the code follows.
 
 ## How the skill is built
 
