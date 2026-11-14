@@ -30,7 +30,7 @@ The project knowledge base is the set of knowledge documents together with the a
 - Process knowledge documents state what is open and how the understanding developed and why, in `journal.md`.
 - Agent instruction documents state how agents are to work, with procedures, constraints, the checks to be run and pointers to the relevant knowledge, in `CLAUDE.md` or `AGENTS.md`.
 
-The knowledge folder holds the knowledge documents. A new project uses `knowledge/`, and a project that already has a folder for them keeps it. The file names in this skill are the defaults of a new project and stand for the existing document with that function. A project adds a document when it has the function for it, such as `design.md` for an artefact with an interface. Templates and the document convention are published at https://dhcraft.org/Promptotyping/.
+The knowledge folder holds the knowledge documents. A new project uses `knowledge/`, and a project that already has a folder for them keeps it. The file names in this skill are the defaults of a new project and stand for the existing document with that function. A project adds a document when it has the function for it, such as `design.md` for an artefact with an interface or `testing.md` for what its tests guarantee and how they are run. Templates and the document convention are published at https://dhcraft.org/Promptotyping/.
 
 The researchers know the sources and the field and judge whether an artefact fits. "The user" is whoever directs the agent, and that person passes on to the researchers what only they can decide.
 
@@ -59,11 +59,10 @@ These rules apply whenever the agent builds, whether or not a subcommand was cal
 1. Build in bounded tasks, each small enough that its result can be run and inspected. State which documents the task draws on and which assumptions it makes.
 2. Compare each result with the knowledge base, show it to the researchers and stop for their inspection, since many requirements only become clear in front of a running artefact. For a web artefact, start a local server and give the address.
 3. When a result reveals missing or wrong knowledge, write the finding into the responsible knowledge document first and let the code follow. Decide first where the fault arose, in knowledge about the data, in a requirement, in a design decision or in the agent instructions.
-4. Work test-first. For each acceptance criterion that a rule can decide, write an executable check before the code, see it fail on a case with a known answer, and then build until it passes. List the criteria that no rule can decide for the researchers.
-5. Where rules or mappings suffice to process research data, write a procedure that can be inspected, tested and rerun. Where an LLM must produce data directly, preserve its raw output, so that every correction can be measured against it, and treat each item as a proposal. An artefact that shows unconfirmed data shows which statements have been confirmed and by whom.
-6. Select the context for each task. Load the documents the task needs and leave the others out, and work on large data through code, so that only a profile and selected examples enter the context.
-7. Before a decision on design, propose alternatives and name what each trades for what.
-8. Never change the source material in `data/`. Data the project produces lie in a folder of their own and are versioned with the knowledge base and the artefact. Commit at stable states.
+4. Where rules or mappings suffice to process research data, write a procedure that can be inspected, tested and rerun. Where an LLM must produce data directly, preserve its raw output, so that every correction can be measured against it, and treat each item as a proposal. An artefact that shows unconfirmed data shows which statements have been confirmed and by whom.
+5. Select the context for each task. Load the documents the task needs and leave the others out, and work on large data through code, so that only a profile and selected examples enter the context.
+6. Before a decision on design, propose alternatives and name what each trades for what.
+7. Never change the source material in `data/`. Data the project produces lie in a folder of their own and are versioned with the knowledge base and the artefact. Commit at stable states.
 
 ## Checking
 
