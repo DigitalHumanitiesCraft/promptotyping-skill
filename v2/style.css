@@ -1,0 +1,103 @@
+/* Working page for version 2. Colours, type and space come from the DHCraft tokens. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--dh-ground);
+  color: var(--dh-ink);
+  font-family: var(--dh-font-text);
+  font-size: var(--dh-step-0);
+  line-height: var(--dh-leading);
+}
+
+main {
+  max-width: var(--dh-measure);
+  margin-inline: auto;
+  padding: var(--dh-space-6) var(--dh-gutter) var(--dh-space-7);
+}
+
+h1,
+h2 {
+  font-family: var(--dh-font-display);
+  line-height: var(--dh-leading-tight);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--dh-step-2);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--dh-step-1);
+  font-weight: 600;
+  margin-top: var(--dh-space-7);
+}
+
+p {
+  margin: var(--dh-space-3) 0 0;
+}
+
+code {
+  font-family: var(--dh-font-mono);
+  font-size: 0.92em;
+}
+
+ul {
+  list-style: none;
+  margin: var(--dh-space-4) 0 0;
+  padding: 0;
+}
+
+li {
+  border-top: var(--dh-hairline) solid var(--dh-line);
+}
+
+li label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--dh-space-3);
+  padding: var(--dh-space-3) 0;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0.25rem 0 0;
+  accent-color: var(--dh-accent);
+  cursor: pointer;
+}
+
+input[type="checkbox"]:focus-visible {
+  outline: var(--dh-focus-ring);
+  outline-offset: var(--dh-focus-offset);
+}
+
+.note {
+  display: block;
+  grid-column: 2;
+  color: var(--dh-ink-soft);
+  font-size: var(--dh-step--1);
+}
+
+li.done .text {
+  color: var(--dh-ink-soft);
+}
+
+.state,
+.error {
+  color: var(--dh-ink-soft);
+}
+
+.error {
+  grid-column: 2;
+  display: block;
+  color: var(--dh-ink);
+  font-weight: 600;
+}

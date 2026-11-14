@@ -45,6 +45,8 @@ Operations during a session (Claude Code syntax, other agents may differ):
 
 This repository delivers version 1.0.0 of the skill, fixed by the tag `v1.0.0`, and everything above describes that version. Version 2 brings the skill into line with the definition of Promptotyping in the forthcoming article and with the [specification](https://github.com/DigitalHumanitiesCraft/Promptotyping), where the revised skill is developed under `skills/promptotyping/`. This section records what has been decided and what is open. The open questions are collected in [issue 6 of the specification repository](https://github.com/DigitalHumanitiesCraft/Promptotyping/issues/6).
 
+The working state of the discussion, in German and with a checklist per topic, is [`v2/arbeitsstand.md`](v2/arbeitsstand.md). `python v2/serve.py` shows it as a page at http://127.0.0.1:18841/ and writes ticked items back to the file.
+
 ### What Promptotyping is
 
 Promptotyping is a working practice for translating research data and their contexts, with frontier LLM agents, into research artefacts that fit the researchers' purposes and ways of working.
