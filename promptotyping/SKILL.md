@@ -52,8 +52,6 @@ Preparation and Implementation have no subcommand. Preparation is the researcher
 
 Where a finding belongs follows from its reach. A single statement or requirement is corrected under rule 3 of building or through `curate`. A changed purpose or a document that is missing calls for `distill`. An account of the data that is in question as a whole calls for `explore`.
 
-Read [references/version-1.md](references/version-1.md) when the project keeps its documents under `docs/` or `promptotyping-docs/`, when its journal has no section `## Open`, when the knowledge folder holds a `handoff.md`, or when the user calls `check`, `verify`, `compact` or `distil`.
-
 ## Rules for building
 
 These rules apply whenever the agent builds, whether or not a subcommand was called.

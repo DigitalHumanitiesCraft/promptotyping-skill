@@ -14,7 +14,7 @@ Version 2 brings the skill into line with the definition of Promptotyping as a w
 - The skill has five subcommands, `orient`, `explore`, `distill`, `curate` and `handoff`. Version 1 had six.
 - `distill` also writes the specification, as personas, epics and user stories with acceptance criteria.
 - `handoff` remains the end of a session. Journal entries have a new form, a heading with date and title and the fields Trigger, Found, Decided, Rejected, Corrected, Changed and Evidence, newest first. A section `## Open` at the beginning of `journal.md`, rewritten at each handoff, replaces the fields for open issues and next steps in every entry.
-- A new project keeps its knowledge base in `knowledge/`, with `project.md`, `data.md`, `specification.md` and `journal.md`. Projects built with version 1 keep `docs/` and their document names, and the skill works with them by their function.
+- A new project keeps its knowledge base in `knowledge/`, with `project.md`, `data.md`, `specification.md` and `journal.md`. Version 2 carries no calls or document names of version 1, which stays available under the tag `v1.0.0` for projects that continue with it.
 
 ### Added
 
@@ -26,9 +26,9 @@ Version 2 brings the skill into line with the definition of Promptotyping as a w
 
 ### Replaced
 
-- `check` is replaced by the kind review of `curate`. The old call leads there and, as before, reports without changing a document.
-- `verify` is replaced by the kind grounding of `curate`. The old call leads there. It now corrects in place what a web request decides and marks the rest.
-- `compact` is replaced by the condensing of the journal within `handoff deep`. The old call leads to the condensing alone. It still keeps the full originals in `journal-archive.md`. The fixed thresholds, the argument for the number of entries to keep and the section heading for condensed history are dropped.
+- `check` is replaced by the kind review of `curate`.
+- `verify` is replaced by the kind grounding of `curate`.
+- `compact` is replaced by the condensing of the journal within `handoff deep`, which still keeps the full originals in `journal-archive.md`. The fixed thresholds, the argument for the number of entries to keep and the section heading for condensed history are dropped.
 
 ### Removed
 

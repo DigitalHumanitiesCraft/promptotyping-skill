@@ -44,7 +44,7 @@ A session runs `orient`, then the work, then `handoff`. Building itself has no s
 ## How the skill is built
 
 - [`promptotyping/SKILL.md`](promptotyping/SKILL.md) holds the definition, the terms, the rules for building and the rules for checking. An agent loads it whenever the skill is active.
-- [`promptotyping/references/`](promptotyping/references/) holds one file per subcommand and one for projects built with version 1. The agent loads a file only when it is needed.
+- [`promptotyping/references/`](promptotyping/references/) holds one file per subcommand, which the agent loads only when the subcommand is called.
 
 ## The knowledge base
 
@@ -66,11 +66,11 @@ Three questions are put to each Promptotype. Does it do what it claims? Is it wa
 
 ## Coming from version 1
 
-Version 1.0.0 stays available under the tag [`v1.0.0`](https://github.com/DigitalHumanitiesCraft/promptotyping-skill/tree/v1.0.0). Installed copies do not change by themselves, and projects built with version 1 keep `docs/` and the names of their documents.
+Version 2 is a new skill and carries no calls or document names of version 1. Version 1.0.0 stays available under the tag [`v1.0.0`](https://github.com/DigitalHumanitiesCraft/promptotyping-skill/tree/v1.0.0) for projects that continue with it, and an installed copy does not change by itself.
 
 - `orient`, `distill` and `handoff` keep their purpose. `distill` now also writes epics and user stories.
 - `explore` is new. Exploration was a phase without a call.
-- `check` and `verify` lead to `curate`, and `compact` leads to the condensing of the journal.
+- `check`, `verify` and `compact` are gone. Their work lies in `curate` and in `handoff deep`.
 - Open issues and next steps move from every journal entry into one section `## Open` at the beginning of `journal.md`.
 - The phases are forms of work in no fixed sequence, and the motto "documents as source of truth" is dropped, since the documents can be wrong about the material.
 
