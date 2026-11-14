@@ -48,7 +48,7 @@ A session runs `orient`, then the work, then `handoff`. Building itself has no s
 
 ## The knowledge base
 
-In a new project the documents lie in `knowledge/`, and the agent instructions in the repository root.
+The documents lie in the folder `knowledge/`, and the agent instructions in the repository root. A folder `docs/` is left to a website published from the repository.
 
 - `project.md` states the purpose and scope of the project.
 - `data.md` states structure, meaning, provenance, gaps and uncertainties of the data.

@@ -7,7 +7,7 @@ Call it when a session begins or the task changes.
 ## Procedure
 
 1. Read the agent instructions in the repository root, `CLAUDE.md` or `AGENTS.md`, where they exist.
-2. Find the knowledge folder, `knowledge/` or else `docs/` or `promptotyping-docs/`, and list its Markdown documents with their headings. Read `INDEX.md` where one exists.
+2. List the Markdown documents in `knowledge/` with their headings. Read `INDEX.md` where one exists.
 3. Read the beginning of `journal.md`, the section `## Open` and the newest entry. Read older entries only when the ground of a decision is needed, and `journal-archive.md` only then.
 4. Read the documents the task needs and leave the others unread.
 5. Inspect the actual state of the folder. Where it is a Git repository, run `git status`, and where it is none, report that. Check that the files the documents name exist. Look at the research data only on the surface, meaning which files exist, in which formats and of what size. Examining their content is `explore`.
