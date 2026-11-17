@@ -2,12 +2,7 @@
 
 Changes to the Promptotyping skill, per version. Versions are fixed by Git tags.
 
-## Unreleased
-
-- A confirmation names the person or the validated deterministic rule that set it, and the agent instructions count among the knowledge documents of the project knowledge base.
-- The definition of Promptotyping, the account of the Promptotype, the three types of knowledge documents, the rules for building and the rules for checking are reworded, so that the skill shares no passage of eight words with the manuscript of the paper. The terms and the procedure are unchanged. The second of the three questions reads "Do the sources warrant it?".
-
-## 2.0.0, 2026-11-14
+## 2.0.0, 2026-11-17
 
 Version 2 brings the skill into line with the definition of Promptotyping as a working practice.
 
@@ -18,6 +13,7 @@ Version 2 brings the skill into line with the definition of Promptotyping as a w
 - What decides whether an artefact fits lies in the sources and the research purpose as the researchers understand them. The motto of version 1, documents as source of truth and code as disposable artefact, is dropped. The knowledge documents guide the work and can be wrong about the material, and an artefact may be replaced once what working with it revealed has been curated into the project knowledge.
 - The skill has five subcommands, `orient`, `explore`, `distill`, `curate` and `handoff`. Version 1 had six.
 - `distill` also writes the specification, as personas, epics and user stories with acceptance criteria.
+- The agent instructions in the repository root count among the knowledge documents of the project knowledge base.
 - `handoff` remains the end of a session. Journal entries stand under `## Entries` and have a new form, a heading with date and title and the fields Trigger, Found, Decided, Rejected, Corrected, Changed and Evidence, newest first. A section `## Open` at the beginning of `journal.md`, rewritten at each handoff, replaces the fields for open issues and next steps in every entry.
 - The knowledge folder is `knowledge/` in the repository root, with `project.md`, `data.md`, `specification.md` and `journal.md`. Version 1 also accepted `docs/` and `promptotyping-docs/`, and `docs/` is now left to a website published from the repository. Version 2 carries no calls or document names of version 1, which stays available under the tag `v1.0.0` for projects that continue with it.
 
@@ -27,8 +23,7 @@ Version 2 brings the skill into line with the definition of Promptotyping as a w
 - `curate`, the maintenance of the existing knowledge documents. The agent chooses among three kinds, against the project, grounding against knowledge outside the project, and review by an agent with a fresh context.
 - `handoff deep`, which curates in all three kinds, closes the session and condenses the journal.
 - Rules for building in the core of the skill, which apply whether or not a subcommand was called.
-- Rules for checking in the core of the skill. They name verification, agentic review and scholarly validation, the statuses proposal, doubted and confirmed, and three questions put to each Promptotype.
-
+- Rules for checking in the core of the skill. They name verification, agentic review and scholarly validation, the statuses proposal, doubted and confirmed, and three questions put to each Promptotype. A confirmation names the person or the validated deterministic rule that set it.
 - Pointers to the templates of the Promptotyping Documents in the repository of the specification, which the skill reads before it creates a document.
 
 ### Replaced
