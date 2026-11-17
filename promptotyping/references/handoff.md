@@ -1,6 +1,6 @@
 # handoff
 
-Closes a session so that the next one can continue from the documents. It is the counterpart of `orient`. What `handoff` writes, the next `orient` reads, whether the next session is the same person with a fresh agent, another agent or another person.
+Closes a session so that the next one can continue from the documents and the issues they point to. It is the counterpart of `orient`. What `handoff` writes, the next `orient` reads, whether the next session is the same person with a fresh agent, another agent or another person.
 
 Call it when a session ends, or when a step of the work passes to someone else. Call `handoff deep` before a longer pause, at a milestone, or when the whole work passes to someone else. Text after the subcommand serves as the commit message. The form of the journal stands in `SKILL.md`, section The journal.
 
@@ -18,7 +18,7 @@ A handoff to a named recipient is the same procedure. Name the recipient in the 
 
 ## handoff deep
 
-A deep handoff makes sure that the documents carry the project, so that someone who was not part of the last sessions can continue. It runs three steps, each ending in a commit of its own.
+A deep handoff makes sure that the documents, with the issues they point to, carry the project, so that someone who was not part of the last sessions can continue. It runs three steps, each ending in a commit of its own.
 
 1. `curate` in its three kinds, review first, then against the project, then grounding where an outside source can be reached, as `references/curate.md` describes.
 2. The procedure above.
@@ -37,4 +37,4 @@ Condensing removes detail from `journal.md` only. The full text of every condens
 
 ## Distinct from
 
-`orient` takes context in and changes nothing. `handoff` gives it out and commits. A plain `handoff` changes only the journal, and `curate` changes the declarative documents.
+`orient` takes context in and changes nothing. `handoff` gives it out and commits. A plain `handoff` changes only the journal and creates an issue only where the user agrees, and `curate` changes the declarative documents.
