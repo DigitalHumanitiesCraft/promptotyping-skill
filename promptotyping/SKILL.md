@@ -3,7 +3,7 @@ name: promptotyping
 description: "Guides an agent in Promptotyping, a working practice that translates research data and their contexts into research artefacts such as tools, visualisations, editions and data workflows, built from a curated project knowledge base. Use when a user invokes Promptotyping, works in a repository whose knowledge folder guides the agent, or asks to orient in a project, explore research data, distil findings into knowledge documents, curate, ground or review those documents, or hand a session off."
 argument-hint: "[orient|explore|distill|curate|handoff]"
 license: MIT
-compatibility: "Designed for Claude Code. Compatible with any agent that supports the Agent Skills standard (agentskills.io). Needs Git, and network access only for grounding."
+compatibility: "Designed for Claude Code. Compatible with any agent that supports the Agent Skills standard (agentskills.io). Needs Git, and network access only for grounding, the templates and a project's issues."
 metadata:
   author: DigitalHumanitiesCraft
   version: "2.0.0"
@@ -30,7 +30,7 @@ The project knowledge base is the set of knowledge documents of a project, which
 - Process knowledge documents record what is open, how the understanding grew and for what reasons, in `journal.md`.
 - Agent instruction documents tell agents how to work. They hold procedures, constraints, the checks to run and pointers to the knowledge a task needs, and they are named `CLAUDE.md` or `AGENTS.md`.
 
-The knowledge folder is `knowledge/` in the repository root, and it holds the knowledge documents. A folder `docs/` is left to a website published from the repository. The file names in this skill are the defaults and stand for the document with that function. A project adds a document when it has the function for it, such as `design.md` for an artefact with an interface or `testing.md` for what its tests guarantee and how they are run. The knowledge documents follow the Promptotyping Documents of the specification, whose repository https://github.com/DigitalHumanitiesCraft/Promptotyping holds one template per document and the convention they follow under `templates/`. A template is readable as plain Markdown at `https://dhcraft.org/Promptotyping/templates/{slug}.md`, with the slugs `project`, `data`, `domain-knowledge`, `specification`, `design`, `architecture`, `testing`, `plan`, `journal`, `index` and `action-layer`, and the convention at `convention`. Before creating a document, read its template and follow it as far as the material fills it, and tell the user which template the document follows. Without network access, write the document by its function as this skill describes it.
+The knowledge folder is `knowledge/` in the repository root, and it holds the knowledge documents other than the agent instructions. A folder `docs/` is left to a website published from the repository. The file names in this skill are the defaults and stand for the document with that function. A project adds a document when it has the function for it, such as `design.md` for an artefact with an interface or `testing.md` for what its tests guarantee and how they are run. The knowledge documents follow the Promptotyping Documents of the specification, whose repository https://github.com/DigitalHumanitiesCraft/Promptotyping holds one template per document and the convention they follow under `templates/`. A template is readable as plain Markdown at `https://dhcraft.org/Promptotyping/templates/{slug}.md`, with the slugs `project`, `data`, `domain-knowledge`, `specification`, `design`, `architecture`, `testing`, `plan`, `journal`, `index` and `action-layer`, and the convention at `convention`. Before creating a document, read its template and follow it as far as the material fills it, and tell the user which template the document follows. Without network access, write the document by its function as this skill describes it.
 
 The researchers know the sources and the field and judge whether an artefact fits. "The user" is whoever directs the agent, and that person passes on to the researchers what only they can decide.
 
@@ -97,8 +97,7 @@ An agent can run executable checks and review code for the first question, raise
 
 ## Open
 
-- Map view does not show the letters dated only to a year. Decide with the
-  researchers whether they appear without a day.
+- #12 Map view does not show the letters dated only to a year
 - Date parser rewritten, tests pass, result not yet compared with data.md.
 
 ## Entries
@@ -113,7 +112,7 @@ An agent can run executable checks and review code for the first question, raise
 - Evidence: tests/test_dates.py fails on the old parser and passes on the new one.
 ```
 
-`## Open` stands at the beginning and holds what the next session needs to continue, meaning unfinished work, results not yet checked, questions that wait for the researchers, and work handed to a named recipient. Each handoff rewrites it as the complete current list. A settled point leaves the section, and an entry below records how it was settled. When nothing is open, the section says "Nothing open."
+`## Open` stands at the beginning and holds what the next session needs to continue, meaning unfinished work, results not yet checked, questions that wait for the researchers, and work handed to a named recipient. Where the project tracks its work in issues, as on GitHub, a point is mostly a plain pointer to its issue, with the number and the title, and the issue holds the detail. A pointer to an issue of another repository names that repository, as in `owner/repo#12`. In such a project the agent proposes an issue for a point without one and creates it only when the user agrees. A point is written out only where no issue holds it. Each handoff rewrites the section as the complete current list. A settled point leaves the section, and an entry below records how it was settled. When nothing is open, the section says "Nothing open."
 
 The entries follow under `## Entries`, newest first, one per coherent step of the work, with the fields that have content among Trigger, Found, Decided, Rejected, Corrected, Changed and Evidence, and with at least one piece of evidence. Where a journal already groups its entries under a heading of its own, keep that form. A judgement of the researchers on a Promptotype is an entry of its own, in their words, with its purpose and its known limits. An entry is history and is rewritten only by condensing. Accepted work that has not begun belongs in the specification or in a `plan.md`, where the project keeps one.
 

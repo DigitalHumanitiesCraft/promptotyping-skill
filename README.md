@@ -68,28 +68,28 @@ A session runs `orient`, then the work, then `handoff`. Building itself has no s
 The documents lie in the folder `knowledge/`, and the agent instructions in the repository root. A folder `docs/` is left to a website published from the repository.
 
 - `project.md` states the purpose and scope of the project.
-- `data.md` states structure, meaning, provenance, gaps and uncertainties of the data.
+- `data.md` states how the data are structured, what they mean, where they come from and where they have gaps or are uncertain.
 - `specification.md` states what the artefact is to do, as epics and user stories with acceptance criteria.
-- `journal.md` states what is open, and how the understanding developed and why.
+- `journal.md` records what is open, how the understanding grew and for what reasons.
 - `CLAUDE.md` or `AGENTS.md` states how agents are to work in this repository.
 
 A project adds a document when it has the function for it, such as `design.md` for an interface or `testing.md` for its tests. These are Promptotyping Documents. The [repository of the specification](https://github.com/DigitalHumanitiesCraft/Promptotyping) holds a template for each of them and the convention they follow under `templates/`, and the [site](https://dhcraft.org/Promptotyping/#templates) lists them. The skill reads the template before it creates a document.
 
 ## Checking
 
-The skill keeps apart verification against a standard the project has accepted, agentic review by an agent, often with a fresh context, and scholarly validation by people who know the sources and the field. Output of an agent or an LLM is a proposal. Whoever takes part in the work may mark it as doubted, and it is confirmed only by a person with the required expertise or by a validated deterministic rule.
+The skill keeps apart verification against a standard the project has accepted, agentic review, in which an agent examines the work, often from a fresh context, and scholarly validation by people who know the sources and the field. Output of an agent or an LLM is a proposal. Whoever takes part in the work may mark it as doubted, and it is confirmed only by a person with the required expertise or by a validated deterministic rule.
 
 Three questions are put to each Promptotype. Does it do what it claims? Do the sources warrant it? Is it adequate to the purpose? Acceptance for a purpose lies with the researchers who work with the Promptotype.
 
 ## Coming from version 1
 
-Version 2 is a new skill and carries no calls or document names of version 1. Version 1.0.0 stays available under the tag [`v1.0.0`](https://github.com/DigitalHumanitiesCraft/promptotyping-skill/tree/v1.0.0) for projects that continue with it, and an installed copy does not change by itself.
+Version 2 is a new skill. Of the documents of version 1 it keeps `journal.md`, `journal-archive.md` and `design.md`. Version 1.0.0 stays available under the tag [`v1.0.0`](https://github.com/DigitalHumanitiesCraft/promptotyping-skill/tree/v1.0.0) for projects that continue with it, and an installed copy does not change by itself.
 
 - The knowledge folder is `knowledge/`. A project that kept its documents under `docs/` renames the folder once.
-- `orient`, `distill` and `handoff` keep their purpose. `distill` now also writes epics and user stories.
+- `orient`, `distill` and `handoff` keep their purpose. `distill` now also writes personas, and each user story carries an acceptance criterion of its own.
 - `explore` is new. Exploration was a phase without a call.
 - `check`, `verify` and `compact` are gone. Their work lies in `curate` and in `handoff deep`.
-- Open issues and next steps move from every journal entry into one section `## Open` at the beginning of `journal.md`.
+- Open issues and next steps move from every journal entry into one section `## Open` at the beginning of `journal.md`, which mostly points to the project's issues.
 - The phases are forms of work in no fixed sequence, and the motto "documents as source of truth" is dropped, since the documents can be wrong about the material.
 
 [CHANGELOG.md](CHANGELOG.md) lists every change.

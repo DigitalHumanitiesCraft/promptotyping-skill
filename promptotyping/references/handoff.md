@@ -8,13 +8,13 @@ Call it when a session ends, or when a step of the work passes to someone else. 
 
 1. Where the folder is a Git repository, run `git status`. Run the checks the agent instructions name, and report a failing check in the journal entry.
 2. Add entries for the steps of this session that the journal does not yet record, below `## Open`. Create the journal where none exists.
-3. Rewrite `## Open`. Be specific enough that the reader can start at once, as in "a quarter of the dates lack a certainty attribute, and how uncertain dates are displayed is undecided".
+3. Rewrite `## Open`. Where a point has an issue, write a pointer with its number and title and keep the detail in the issue. Where the project tracks its work in issues and a point has none, propose an issue for it and create the issue only when the user agrees. Write out a point that has no issue, specific enough that the reader can start at once, as in "a quarter of the dates lack a certainty attribute, and how uncertain dates are displayed is undecided".
 4. Commit the knowledge documents, the artefact and the data the project produced together, with a concise message. Do not push. The researchers decide when to push.
 5. Confirm with the hash of that commit and one line on what is open. Copy hashes from Git and never write one from memory.
 
 ## Passing a step to someone else
 
-A handoff to a named recipient is the same procedure. Name the recipient in the point under `## Open`, with what they need in order to start, meaning the source, the state and the evidence. Where the recipient works in another repository, write the point into `## Open` of that repository's journal, if you may write there, or give it to the user to pass on.
+A handoff to a named recipient is the same procedure. Name the recipient in the point under `## Open`, with what they need in order to start, meaning the source, the state and the evidence. Where the point has an issue, the pointer with the recipient's name suffices, and the source, the state and the evidence stand in the issue. Where the recipient works in another repository, write the point into `## Open` of that repository's journal, if you may write there, or give it to the user to pass on. A pointer there names the repository of the issue, as in `owner/repo#12`, since a bare number points to that repository's own issues.
 
 ## handoff deep
 
